@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import { Inter, Sora, Nunito_Sans, Fira_Code } from "next/font/google";
+import { Inter, Sora } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -14,19 +12,9 @@ const sora = Sora({
   subsets: ["latin"],
 });
 
-const nunitoSans = Nunito_Sans({
-  variable: "--font-nunito",
-  subsets: ["latin"],
-});
-
-const firaCode = Fira_Code({
-  variable: "--font-fira-code",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
   title: "Hikmet Gulsesli — Developer Portal",
-  description: "Developer focused on shipping high-performance web applications and autonomous agents.",
+  description: "OpenClaw Builder — 10 AI agents, 24 deployed web apps, 5 automated workflows.",
 };
 
 export default function RootLayout({
@@ -36,13 +24,12 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="tr"
-      className={`${inter.variable} ${sora.variable} ${nunitoSans.variable} ${firaCode.variable} h-full antialiased`}
+      lang="en"
+      className={`${inter.variable} ${sora.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        {children}
       </body>
     </html>
   );
