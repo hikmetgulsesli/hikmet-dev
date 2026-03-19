@@ -5,14 +5,19 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ThemeSwitcher } from './ThemeSwitcher';
 import { Github, MessageCircle, Linkedin, Menu, X, Terminal } from 'lucide-react';
-import { socialLinks } from '@/data/social';
-import { navigation } from '@/data/site';
 
-const socialLinkIcons: Record<string, typeof Github> = {
-  github: Github,
-  discord: MessageCircle,
-  linkedin: Linkedin,
-};
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/resources', label: 'Resources' },
+  { href: '/writing', label: 'Writing' },
+];
+
+const socialLinks = [
+  { href: 'https://github.com', icon: Github, label: 'GitHub' },
+  { href: 'https://discord.com', icon: MessageCircle, label: 'Discord' },
+  { href: 'https://linkedin.com', icon: Linkedin, label: 'LinkedIn' },
+];
 
 export function Header() {
   const pathname = usePathname();
@@ -36,9 +41,9 @@ export function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-6 md:flex">
-          {navigation.map((link) => (
+          {navLinks.map((link) => (
             <Link
-              key={link.id}
+              key={link.href}
               href={link.href}
               className={`text-sm transition-colors hover:text-slate-200 ${
                 isActive(link.href)
@@ -55,21 +60,18 @@ export function Header() {
         <div className="flex items-center gap-3">
           {/* Social icons - desktop only */}
           <div className="hidden items-center gap-1 border-r border-slate-700 pr-3 md:flex">
-            {socialLinks.map((social) => {
-              const IconComponent = socialLinkIcons[social.icon];
-              return (
-                <a
-                  key={social.id}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded-lg text-slate-400 transition-colors hover:bg-white/5 hover:text-slate-200"
-                  aria-label={social.name}
-                >
-                  {IconComponent && <IconComponent className="h-4 w-4" />}
-                </a>
-              );
-            })}
+            {socialLinks.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-9 w-9 items-center justify-center rounded-lg text-slate-400 transition-colors hover:bg-white/5 hover:text-slate-200"
+                aria-label={social.label}
+              >
+                <social.icon className="h-4 w-4" />
+              </a>
+            ))}
           </div>
 
           {/* Live badge */}
@@ -97,11 +99,11 @@ export function Header() {
 
       {/* Mobile menu */}
       {isMobileMenuOpen && (
-        <div className="border-t border-slate-800/50 bg-slate-900/95 backdrop-blur-md md:hidden">
+        <div className="border-t border-slate-800/50 bg-slate-900/95 backdrop-blur-md md:hidden" data-testid="mobile-menu">
           <nav className="flex flex-col gap-1 p-4">
-            {navigation.map((link) => (
+            {navLinks.map((link) => (
               <Link
-                key={link.id}
+                key={link.href}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={`rounded-lg px-4 py-3 text-sm transition-colors ${
@@ -116,21 +118,18 @@ export function Header() {
             
             {/* Mobile social links */}
             <div className="mt-4 flex items-center gap-2 border-t border-slate-800/50 pt-4">
-              {socialLinks.map((social) => {
-                const IconComponent = socialLinkIcons[social.icon];
-                return (
-                  <a
-                    key={social.id}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex h-10 w-10 items-center justify-center rounded-lg text-slate-400 transition-colors hover:bg-white/5 hover:text-slate-200"
-                    aria-label={social.name}
-                  >
-                    {IconComponent && <IconComponent className="h-5 w-5" />}
-                  </a>
-                );
-              })}
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-10 w-10 items-center justify-center rounded-lg text-slate-400 transition-colors hover:bg-white/5 hover:text-slate-200"
+                  aria-label={social.label}
+                >
+                  <social.icon className="h-5 w-5" />
+                </a>
+              ))}
             </div>
 
             {/* Mobile live badge */}
