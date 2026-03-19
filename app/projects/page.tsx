@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 import { ProjectsContent } from './ProjectsContent';
+import { Skeleton } from '@/components/ui/skeleton';
 
 export default function ProjectsPage() {
   return (
@@ -15,19 +16,19 @@ function ProjectsLoading() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header Skeleton */}
         <div className="mb-8">
-          <div className="h-10 w-48 bg-slate-200 dark:bg-slate-800 rounded-lg animate-pulse mb-2" />
-          <div className="h-4 w-full max-w-2xl bg-slate-200 dark:bg-slate-800 rounded-lg animate-pulse" />
+          <Skeleton className="h-10 w-48 mb-2" />
+          <Skeleton className="h-4 w-full max-w-2xl" />
         </div>
 
         {/* Filters Skeleton */}
         <div className="space-y-6 mb-10">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-            <div className="h-10 w-full max-w-md bg-slate-200 dark:bg-slate-800 rounded-lg animate-pulse" />
-            <div className="h-10 w-64 bg-slate-200 dark:bg-slate-800 rounded-lg animate-pulse" />
+            <Skeleton className="h-10 w-full max-w-md" />
+            <Skeleton className="h-10 w-64" />
           </div>
           <div className="flex flex-wrap gap-2">
             {Array.from({ length: 8 }).map((_, i) => (
-              <div key={i} className="h-6 w-20 bg-slate-200 dark:bg-slate-800 rounded-full animate-pulse" />
+              <Skeleton key={i} className="h-6 w-20 rounded-full" />
             ))}
           </div>
         </div>
@@ -35,7 +36,7 @@ function ProjectsLoading() {
         {/* Grid Skeleton */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {Array.from({ length: 6 }).map((_, i) => (
-            <div key={i} className="h-80 bg-slate-200 dark:bg-slate-800 rounded-xl animate-pulse" />
+            <Skeleton key={i} className="h-80 rounded-xl" />
           ))}
         </div>
       </div>
