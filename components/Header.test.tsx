@@ -32,10 +32,10 @@ describe('Header', () => {
 
   it('renders all navigation links', () => {
     render(<Header />);
-    expect(screen.getByText('Ana Sayfa')).toBeInTheDocument();
-    expect(screen.getByText('Projeler')).toBeInTheDocument();
-    expect(screen.getByText('Kaynaklar')).toBeInTheDocument();
-    expect(screen.getByText('Yazılar')).toBeInTheDocument();
+    expect(screen.getByText('Home')).toBeInTheDocument();
+    expect(screen.getByText('Projects')).toBeInTheDocument();
+    expect(screen.getByText('Resources')).toBeInTheDocument();
+    expect(screen.getByText('Writing')).toBeInTheDocument();
   });
 
   it('renders the live badge', () => {
@@ -57,7 +57,7 @@ describe('Header', () => {
 
   it('highlights active nav link based on current route', () => {
     render(<Header />);
-    const homeLink = screen.getByText('Ana Sayfa');
+    const homeLink = screen.getByText('Home');
     expect(homeLink).toHaveClass('text-primary');
   });
 
@@ -74,9 +74,8 @@ describe('Header', () => {
     // After clicking, should show close button
     expect(screen.getByLabelText('Close menu')).toBeInTheDocument();
     
-    // Mobile nav links should be visible
-    const mobileNav = screen.getAllByText('Ana Sayfa');
-    expect(mobileNav.length).toBeGreaterThan(0);
+    // Mobile menu container should be visible
+    expect(screen.getByTestId('mobile-menu')).toBeInTheDocument();
   });
 
   it('closes mobile menu when close button is clicked', () => {

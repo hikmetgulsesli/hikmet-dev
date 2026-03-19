@@ -1,15 +1,18 @@
-'use client';
-
 import Link from 'next/link';
 import { Github, MessageCircle, Linkedin, Mail, ArrowRight } from 'lucide-react';
-import { socialLinks } from '@/data/social';
-import { footerContent } from '@/data/site';
 
-const socialLinkIcons: Record<string, typeof Github> = {
-  github: Github,
-  discord: MessageCircle,
-  linkedin: Linkedin,
-};
+const socialLinks = [
+  { href: 'https://github.com', icon: Github, label: 'GitHub' },
+  { href: 'https://discord.com', icon: MessageCircle, label: 'Discord' },
+  { href: 'https://linkedin.com', icon: Linkedin, label: 'LinkedIn' },
+];
+
+const footerLinks = [
+  { href: '/about', label: 'About' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/resources', label: 'Resources' },
+  { href: '/writing', label: 'Blog' },
+];
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -22,10 +25,11 @@ export function Footer() {
           {/* Brand section */}
           <div className="lg:col-span-2">
             <h2 className="mb-4 font-sora text-2xl font-bold text-slate-100">
-              {footerContent.headline}
+              Let&apos;s build together
             </h2>
             <p className="mb-6 max-w-md text-slate-400">
-              {footerContent.subheadline}
+              Creating autonomous workflows and intelligent systems. 
+              Open for collaborations and interesting projects.
             </p>
             
             {/* Newsletter link */}
@@ -45,7 +49,7 @@ export function Footer() {
               Navigation
             </h3>
             <ul className="space-y-2">
-              {footerContent.links.map((link) => (
+              {footerLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -64,22 +68,19 @@ export function Footer() {
               Connect
             </h3>
             <div className="grid grid-cols-3 gap-2">
-              {socialLinks.map((social) => {
-                const IconComponent = socialLinkIcons[social.icon];
-                return (
-                  <a
-                    key={social.id}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex flex-col items-center gap-2 rounded-xl border border-slate-800 bg-slate-800/50 p-4 text-slate-400 transition-colors hover:border-primary/30 hover:bg-slate-800 hover:text-slate-200"
-                    aria-label={social.name}
-                  >
-                    {IconComponent && <IconComponent className="h-6 w-6" />}
-                    <span className="text-xs">{social.name}</span>
-                  </a>
-                );
-              })}
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col items-center gap-2 rounded-xl border border-slate-800 bg-slate-800/50 p-4 text-slate-400 transition-colors hover:border-primary/30 hover:bg-slate-800 hover:text-slate-200"
+                  aria-label={social.label}
+                >
+                  <social.icon className="h-6 w-6" />
+                  <span className="text-xs">{social.label}</span>
+                </a>
+              ))}
             </div>
           </div>
         </div>
@@ -89,7 +90,7 @@ export function Footer() {
       <div className="border-t border-slate-800/50">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-6 sm:flex-row sm:px-6 lg:px-8">
           <p className="text-sm text-slate-500">
-            © {currentYear} {footerContent.copyright.replace(`© ${new Date().getFullYear()} `, '')}
+            © {currentYear} Hikmet Gulsesli. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <Link href="/privacy" className="text-sm text-slate-500 hover:text-slate-400">
