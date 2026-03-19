@@ -1,0 +1,29 @@
+=== US-001: Project setup: Next.js 14 + Tailwind v4 + shadcn/ui + design tokens ===
+COMPLETED: 2026-03-19T18:34:00+03:00
+FILES CHANGED:
+- app/globals.css (updated with oklch design tokens)
+- app/layout.tsx (updated with Inter font)
+- components/ui/button.tsx (new)
+- components/ui/card.tsx (new)
+- components/ui/badge.tsx (new)
+- components/ui/input.tsx (new)
+- components/ui/skeleton.tsx (new)
+- components/ui/dialog.tsx (new)
+- lib/utils.ts (new - cn() utility)
+- lib/utils.test.ts (new - tests for cn())
+- vitest.config.ts (new)
+- vitest.setup.ts (new)
+- package.json (updated with test script and dependencies)
+
+KEY DECISIONS:
+- Using oklch color space for design tokens (better perceptual uniformity)
+- Dark theme as default with light theme via prefers-color-scheme
+- Added .dark class for manual theme switching
+- Using Tailwind CSS v4 with CSS-first configuration
+- Inter font for sans-serif, Geist Mono for monospace
+- Vitest for testing with jsdom environment
+
+DEPENDENCIES ADDED:
+- clsx, tailwind-merge, class-variance-authority
+- @radix-ui/react-dialog, lucide-react
+- vitest, @testing-library/react, @testing-library/jest-dom, jsdom
