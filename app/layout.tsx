@@ -26,7 +26,44 @@ const firaCode = Fira_Code({
 
 export const metadata: Metadata = {
   title: "Hikmet Gulsesli — Developer Portal",
-  description: "Developer focused on shipping high-performance web applications and autonomous agents.",
+  description: "Developer focused on shipping high-performance web applications and autonomous agents. Building with AI, open-source tools, and modern web technologies.",
+  keywords: ["Hikmet Gulsesli", "Developer", "AI", "OpenClaw", "Next.js", "React", "TypeScript"],
+  authors: [{ name: "Hikmet Gulsesli" }],
+  creator: "Hikmet Gulsesli",
+  metadataBase: new URL("https://setrox.com.tr"),
+  openGraph: {
+    type: "website",
+    locale: "tr_TR",
+    url: "https://setrox.com.tr",
+    siteName: "Hikmet Gulsesli — Developer Portal",
+    title: "Hikmet Gulsesli — Developer Portal",
+    description: "Developer focused on shipping high-performance web applications and autonomous agents.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Hikmet Gulsesli Developer Portal",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hikmet Gulsesli — Developer Portal",
+    description: "Developer focused on shipping high-performance web applications and autonomous agents.",
+    images: ["/og-image.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
