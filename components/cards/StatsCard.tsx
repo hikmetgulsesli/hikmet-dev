@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, CardContent } from "@/components/ui/Card";
+import { Card } from "@/components/ui/Card";
 import { Bot, Globe, GitBranch, type LucideIcon } from "lucide-react";
 
 const iconMap: Record<string, LucideIcon> = {
