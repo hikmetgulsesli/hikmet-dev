@@ -78,7 +78,7 @@ export function NewsletterForm({ onSubmit }: NewsletterFormProps) {
 
   return (
     <div className="w-full max-w-md">
-      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
+      <form onSubmit={handleSubmit} noValidate className="flex flex-col sm:flex-row gap-3">
         <div className="relative flex-grow">
           <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400">
             <Mail className="w-4 h-4" />

@@ -2,3 +2,5 @@ export { ProjectCard, type ProjectCardProps, type ProjectStatus } from "./Projec
 export { BlogCard, type BlogCardProps } from "./BlogCard";
 export { ResourceCard, type ResourceCardProps } from "./ResourceCard";
 export { StatsCard, type StatsCardProps } from "./StatsCard";
+export { RepoCard, type RepoCardProps } from "./RepoCard";
+export { DocCard, type DocCardProps } from "./DocCard";
