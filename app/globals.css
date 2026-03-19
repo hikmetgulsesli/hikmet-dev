@@ -201,6 +201,11 @@ body {
 }
 
 /* Custom scrollbar for terminal */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(10, 191, 194, 0.2) transparent;
+}
+
 .custom-scrollbar::-webkit-scrollbar {
   width: 4px;
 }

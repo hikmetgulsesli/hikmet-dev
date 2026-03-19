@@ -24,6 +24,13 @@ const languageIcons: Record<string, React.ReactNode> = {
   default: <Code2 className="w-5 h-5 text-primary" />,
 };
 
+const formatNumber = (num: number): string => {
+  if (num >= 1000) {
+    return (num / 1000).toFixed(1) + "k";
+  }
+  return num.toString();
+};
+
 export function RepoCard({
   name,
   description,
@@ -35,13 +42,6 @@ export function RepoCard({
 }: RepoCardProps) {
   const icon = languageIcons[language] || languageIcons.default;
 
-  const formatNumber = (num: number): string => {
-    if (num >= 1000) {
-      return (num / 1000).toFixed(1) + "k";
-    }
-    return num.toString();
-  };
-
   return (
     <Card className="group bg-transparent border-primary/10 hover:bg-primary/5 transition-all p-5">
       <div className="flex items-center gap-3 mb-3">
@@ -50,19 +50,19 @@ export function RepoCard({
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-slate-100 font-bold hover:text-primary transition-colors"
+          className="text-slate-900 dark:text-slate-100 font-bold hover:text-primary transition-colors"
         >
           {name}
         </a>
       </div>
-      <p className="text-slate-400 text-xs mb-4 line-clamp-2">{description}</p>
+      <p className="text-slate-400 dark:text-slate-400 text-xs mb-4 line-clamp-2">{description}</p>
       <div className="flex items-center justify-between mt-auto">
         <div className="flex gap-4 text-xs font-semibold">
-          <div className="flex items-center gap-1 text-slate-400">
+          <div className="flex items-center gap-1 text-slate-400 dark:text-slate-400">
             <Star className="w-3.5 h-3.5" />
             {formatNumber(stars)}
           </div>
-          <div className="flex items-center gap-1 text-slate-400">
+          <div className="flex items-center gap-1 text-slate-400 dark:text-slate-400">
             <GitFork className="w-3.5 h-3.5" />
             {formatNumber(forks)}
           </div>

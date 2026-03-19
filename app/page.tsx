@@ -15,7 +15,7 @@ export default function Home() {
   const recentPosts = getRecentPosts(3);
 
   return (
-    <main className="flex-1 w-full">
+    <div className="flex-1 w-full">
       {/* Hero Section - Stats Cards */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -126,9 +126,9 @@ export default function Home() {
               <div className="flex items-center gap-2 mb-6">
                 <BookOpen className="w-5 h-5 text-primary" />
                 <h3 className="text-xl font-bold text-slate-900 dark:text-white">Documentation</h3>
-                <button className="text-sm text-primary hover:underline ml-auto">
+                <span className="text-sm text-primary/50 ml-auto">
                   View all
-                </button>
+                </span>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {docsCards.map((doc) => (
@@ -182,6 +182,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

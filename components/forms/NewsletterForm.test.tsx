@@ -1,5 +1,6 @@
 import { describe, it, expect, vi } from "vitest";
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { NewsletterForm } from "./NewsletterForm";
 
 describe("NewsletterForm", () => {
@@ -11,57 +12,57 @@ describe("NewsletterForm", () => {
   });
 
   it("shows error for invalid email", async () => {
+    const user = userEvent.setup();
     render(<NewsletterForm />);
     
+    // Get the form and use userEvent to type and submit without browser validation
     const input = screen.getByPlaceholderText("E-posta adresiniz");
-    const submitButton = screen.getByText("Abone Ol");
     
-    fireEvent.change(input, { target: { value: "invalid-email" } });
-    fireEvent.click(submitButton);
+    await user.type(input, "invalid-email");
     
-    await waitFor(() => {
-      expect(screen.getByText("Geçerli bir email giriniz")).toBeInTheDocument();
-    });
+    // Submit using enter key on the input to bypass browser validation
+    await user.keyboard("{Enter}");
+    
+    expect(await screen.findByText("Geçerli bir email giriniz")).toBeInTheDocument();
   });
 
   it("shows error for empty email", async () => {
+    const user = userEvent.setup();
     render(<NewsletterForm />);
     
     const submitButton = screen.getByText("Abone Ol");
-    fireEvent.click(submitButton);
+    await user.click(submitButton);
     
-    await waitFor(() => {
-      expect(screen.getByText("E-posta adresi gerekli")).toBeInTheDocument();
-    });
+    expect(await screen.findByText("E-posta adresi gerekli")).toBeInTheDocument();
   });
 
   it("shows success message on valid email submit", async () => {
+    const user = userEvent.setup();
     render(<NewsletterForm />);
     
     const input = screen.getByPlaceholderText("E-posta adresiniz");
     const submitButton = screen.getByText("Abone Ol");
     
-    fireEvent.change(input, { target: { value: "test@example.com" } });
-    fireEvent.click(submitButton);
+    await user.type(input, "test@example.com");
+    await user.click(submitButton);
     
-    await waitFor(() => {
-      expect(screen.getByText("Başarıyla abone oldunuz!")).toBeInTheDocument();
-    });
+    expect(await screen.findByText("Başarıyla abone oldunuz!")).toBeInTheDocument();
   });
 
   it("calls onSubmit handler with email", async () => {
+    const user = userEvent.setup();
     const onSubmit = vi.fn().mockResolvedValue(true);
     render(<NewsletterForm onSubmit={onSubmit} />);
     
     const input = screen.getByPlaceholderText("E-posta adresiniz");
     const submitButton = screen.getByText("Abone Ol");
     
-    fireEvent.change(input, { target: { value: "test@example.com" } });
-    fireEvent.click(submitButton);
+    await user.type(input, "test@example.com");
+    await user.click(submitButton);
     
-    await waitFor(() => {
-      expect(onSubmit).toHaveBeenCalledWith("test@example.com");
-    });
+    // Wait for the success state which indicates onSubmit was called
+    expect(await screen.findByText("Başarıyla abone oldunuz!")).toBeInTheDocument();
+    expect(onSubmit).toHaveBeenCalledWith("test@example.com");
   });
 
   it("button text is 'Abone Ol' not 'Subscribe'", () => {

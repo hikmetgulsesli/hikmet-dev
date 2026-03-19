@@ -70,8 +70,8 @@ export function TerminalWidget({ logs, title = "DevHub_Terminal" }: TerminalWidg
         ref={scrollRef}
         className="p-5 font-mono text-xs leading-relaxed flex-1 overflow-y-auto custom-scrollbar"
       >
-        <div className="text-primary mb-1">
-          Last login: {new Date().toLocaleString("tr-TR", { dateStyle: "medium", timeStyle: "short" })}
+        <div className="text-primary mb-1" suppressHydrationWarning>
+          Last login: <span suppressHydrationWarning>{new Date().toLocaleString("tr-TR", { dateStyle: "medium", timeStyle: "short" })}</span>
         </div>
         <div className="text-slate-500 mb-4">$ openclaw --version 2.0.0</div>
 
@@ -98,6 +98,7 @@ export function TerminalWidget({ logs, title = "DevHub_Terminal" }: TerminalWidg
         <button
           onClick={() => setExpanded(false)}
           className="absolute top-4 right-4 p-2 bg-slate-800 rounded-lg text-white hover:bg-slate-700"
+          aria-label="Terminal penceresini kapat"
         >
           <Minimize2 className="w-5 h-5" />
         </button>

@@ -18,10 +18,9 @@ describe("Home Page", () => {
   it("renders exactly 3 blog cards", () => {
     render(<Home />);
     
-    // BlogCard renders category labels and dates
-    const categoryLabels = screen.getAllByText(/AI|DevOps|Automation|Tutorial|Announcement/);
-    // Should have at least 3 (one for each blog card)
-    expect(categoryLabels.length).toBeGreaterThanOrEqual(3);
+    // BlogCard renders "Read more" links
+    const readMoreLinks = screen.getAllByRole("link", { name: /read more/i });
+    expect(readMoreLinks).toHaveLength(3);
   });
 
   it("renders Resources & APIs section", () => {
@@ -34,16 +33,21 @@ describe("Home Page", () => {
     render(<Home />);
     
     expect(screen.getByText("Documentation")).toBeInTheDocument();
-    // DocCards show progress
-    const progressLabels = screen.getAllByText(/Progress/);
-    expect(progressLabels.length).toBeGreaterThanOrEqual(4);
+    const docCardTitles = [
+      "Core API Referansı",
+      "Agent SDK",
+      "Güvenlik Rehberi",
+      "Deployment",
+    ];
+    docCardTitles.forEach(title => {
+      expect(screen.getByText(title)).toBeInTheDocument();
+    });
   });
 
   it("renders Repositories section with 4 repo cards", () => {
     render(<Home />);
     
     expect(screen.getByText("Repositories")).toBeInTheDocument();
-    // RepoCards show star counts
     const repoNames = [
       "ui-kit-pro",
       "auth-service-v3",
