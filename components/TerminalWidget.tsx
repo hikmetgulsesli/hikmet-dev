@@ -1,111 +1,108 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { Maximize2, Minimize2 } from "lucide-react";
+import { useCallback } from "react";
 
 export interface TerminalLog {
   id: string;
   timestamp: string;
   level: "info" | "success" | "warning" | "error";
   message: string;
-  source: string;
 }
 
-export interface TerminalWidgetProps {
-  logs: TerminalLog[];
-  title?: string;
+interface TerminalWidgetProps {
+  logs?: TerminalLog[];
+  className?: string;
 }
+
+const defaultLogs: TerminalLog[] = [
+  { id: "1", timestamp: "14:32:01", level: "info", message: "Connecting to API gateway..." },
+  { id: "2", timestamp: "14:32:05", level: "info", message: "Syncing workflow database..." },
+  { id: "3", timestamp: "14:32:10", level: "success", message: "Establishing secure handshake..." },
+  { id: "4", timestamp: "14:32:12", level: "info", message: "Loading developer profile assets..." },
+  { id: "5", timestamp: "14:32:15", level: "success", message: "System core initialized. Welcome, developer." },
+  { id: "6", timestamp: "14:32:18", level: "info", message: "Loading workbench resources..." },
+  { id: "7", timestamp: "14:32:20", level: "success", message: "4 docs cards loaded" },
+  { id: "8", timestamp: "14:32:21", level: "success", message: "4 repo cards loaded" },
+];
 
 const levelColors = {
-  info: "text-primary",
-  success: "text-green-500",
-  warning: "text-yellow-500",
-  error: "text-red-500",
+  info: "text-cyan-400",
+  success: "text-green-400",
+  warning: "text-yellow-400",
+  error: "text-red-400",
 };
 
 const levelLabels = {
-  info: "[INFO]",
-  success: "[SUCCESS]",
-  warning: "[WARN]",
-  error: "[ERROR]",
+  info: "INFO",
+  success: "OK",
+  warning: "WARN",
+  error: "ERR",
 };
 
-export function TerminalWidget({ logs, title = "DevHub_Terminal" }: TerminalWidgetProps) {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [expanded, setExpanded] = useState(false);
-  const [lastLogin] = useState<string>(() =>
-    new Date().toLocaleString("tr-TR", { dateStyle: "medium", timeStyle: "short" })
-  );
-
-  useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-    }
+export function TerminalWidget({ logs = defaultLogs, className = "" }: TerminalWidgetProps) {
+  const handleCopy = useCallback(() => {
+    const text = logs.map(log => `[${log.timestamp}] [${levelLabels[log.level]}] ${log.message}`).join('\n');
+    navigator.clipboard.writeText(text).catch(() => {});
   }, [logs]);
 
   return (
-    <div
-      className={`bg-black rounded-xl border border-primary/30 overflow-hidden terminal-glow flex flex-col ${
-        expanded ? "h-[600px] fixed inset-4 z-50" : "h-full min-h-[500px]"
-      }`}
-    >
+    <div className={`bg-black rounded-xl border border-border-dark overflow-hidden flex flex-col shadow-2xl ${className}`}>
       {/* Header */}
-      <div className="bg-slate-900 px-4 py-2 flex items-center justify-between border-b border-primary/20">
+      <div className="bg-surface-dark px-4 py-2 border-b border-border-dark flex items-center justify-between">
         <div className="flex gap-1.5">
           <div className="w-2.5 h-2.5 rounded-full bg-red-500/50" />
           <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50" />
           <div className="w-2.5 h-2.5 rounded-full bg-green-500/50" />
         </div>
-        <span className="text-[10px] font-mono text-primary/60 uppercase tracking-widest">
-          {title}
+        <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest font-bold">
+          zsh — workbench-pro
         </span>
-        <button
-          onClick={() => setExpanded(!expanded)}
-          className="text-primary/60 hover:text-primary transition-colors"
-          aria-label={expanded ? "Küçült" : "Büyüt"}
+        <button 
+          type="button" 
+          onClick={handleCopy}
+          aria-label="Copy terminal output"
+          className="text-slate-500 hover:text-primary transition-colors"
         >
-          {expanded ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+          </svg>
         </button>
       </div>
 
-      {/* Terminal Content */}
-      <div
-        ref={scrollRef}
-        className="p-5 font-mono text-xs leading-relaxed flex-1 overflow-y-auto custom-scrollbar"
-      >
-        <div className="text-primary mb-1">
-          Last login: <span suppressHydrationWarning>{lastLogin}</span>
+      {/* Content */}
+      <div className="p-4 font-mono text-xs overflow-y-auto flex-1 space-y-1 custom-scrollbar">
+        {/* ASCII Art */}
+        <div className="text-primary mb-4 whitespace-pre font-bold text-[10px] leading-tight animate-fadeIn">
+{`███████╗███████╗████████╗██████╗  ██████╗ ██╗  ██╗
+██╔════╝██╔════╝╚══██╔══╝██╔══██╗██╔═══██╗╚██╗██╔╝
+███████╗█████╗     ██║   ██████╔╝██║   ██║ ╚███╔╝ 
+╚════██║██╔══╝     ██║   ██╔══██╗██║   ██║ ██╔██╗ 
+███████║███████╗   ██║   ██║  ██║╚██████╔╝██╔╝ ██╗
+╚══════╝╚══════╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝`}
         </div>
-        <div className="text-slate-500 mb-4">$ openclaw --version 2.0.0</div>
 
-        {logs.map((log) => (
-          <div key={log.id} className="flex gap-2 mb-1">
-            <span className={levelColors[log.level]}>{levelLabels[log.level]}</span>
+        {/* Logs */}
+        {logs.map((log, index) => (
+          <div 
+            key={log.id} 
+            className="flex flex-wrap gap-2 animate-slideIn"
+            style={{ animationDelay: `${index * 150}ms` }}
+          >
+            <span className="text-slate-600">[{log.timestamp}]</span>
+            <span className={`${levelColors[log.level]} font-bold`}>
+              [{levelLabels[log.level]}]
+            </span>
             <span className="text-slate-300">{log.message}</span>
           </div>
         ))}
 
-        {/* Animated cursor */}
-        <div className="flex gap-2 mb-1 mt-2">
-          <span className="text-slate-500 animate-pulse">_</span>
-        </div>
-
-        {/* Footer message */}
-        <div className="text-slate-600 mt-10 italic opacity-50">
-          System background tasks active...
+        {/* Cursor */}
+        <div className="flex items-center gap-2 mt-2 animate-fadeIn" style={{ animationDelay: `${logs.length * 150 + 200}ms` }}>
+          <span className="text-primary font-bold">$</span>
+          <span className="text-slate-100">workbench</span>
+          <span className="w-2 h-4 bg-primary animate-pulse ml-1" />
         </div>
       </div>
-
-      {/* Overlay close button for expanded mode */}
-      {expanded && (
-        <button
-          onClick={() => setExpanded(false)}
-          className="absolute top-4 right-4 p-2 bg-slate-800 rounded-lg text-white hover:bg-slate-700"
-          aria-label="Terminal penceresini kapat"
-        >
-          <Minimize2 className="w-5 h-5" />
-        </button>
-      )}
     </div>
   );
 }
