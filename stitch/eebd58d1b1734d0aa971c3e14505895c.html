@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&amp;family=Nunito+Sans:wght@300;400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0abfc2",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#102222",
+                    },
+                    fontFamily: {
+                        "display": ["Sora", "sans-serif"],
+                        "body": ["Nunito Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+            background-color: #0c1414; /* Derived from oklch(0.15 0 0) */
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Sora', sans-serif;
+        }
+        .terminal-glow {
+            box-shadow: inset 0 0 20px rgba(10, 191, 194, 0.05);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(10, 191, 194, 0.2);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="text-slate-100 antialiased min-h-screen">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<!-- Top Navigation -->
+<header class="flex items-center justify-between border-b border-primary/20 pb-6 mb-10">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-primary">
+<span class="material-symbols-outlined text-3xl">terminal</span>
+<h2 class="text-slate-100 text-xl font-bold tracking-tight">DevHub <span class="text-primary/80 font-normal">Resources</span></h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-400 hover:text-primary transition-colors text-sm font-semibold" href="#">Docs</a>
+<a class="text-slate-100 border-b-2 border-primary pb-1 text-sm font-semibold" href="#">Repos</a>
+<a class="text-slate-400 hover:text-primary transition-colors text-sm font-semibold" href="#">Terminal</a>
+<a class="text-slate-400 hover:text-primary transition-colors text-sm font-semibold" href="#">Settings</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary/60 text-xl">search</span>
+<input class="bg-primary/5 border border-primary/20 rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-1 focus:ring-primary focus:border-primary outline-none w-64 text-slate-100" placeholder="Search resources..." type="text"/>
+</div>
+<div class="h-10 w-10 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center overflow-hidden">
+<img alt="User profile" class="h-full w-full object-cover" data-alt="User profile avatar icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDalTIRRTjHJ9i0rUzQXufONKkma8okAB9zdGUIjImdsGX1ikChfnxZU8tLXXVAyD_up_F93v-9cmXceL9gBPsbqN12OlifdkkVjuM93gkohsMiDAQWqFloA7nzijcZL5O1pz6YKU1jqbuyL2WbZfs5CYOIseoMmWWS9ln7v9P6UbHyta1Rl_OZ_wfoT9iCCw1FiPIIxy_EIWda2fel0oD9mq2Efsd7JygU6pkuI6dt_o9nusoB-0W4w8wNg_p_e48ho3VWaY0KjiQ"/>
+</div>
+</div>
+</header>
+<main class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Resource Cards -->
+<div class="lg:col-span-8 space-y-10">
+<!-- Documentation Section -->
+<section>
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">book_5</span>
+<h3 class="text-xl font-bold">Documentation</h3>
+</div>
+<button class="text-sm text-primary hover:underline">View all</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Card 1 -->
+<div class="bg-primary/5 border border-primary/10 rounded-xl p-5 hover:border-primary/40 transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined">api</span>
+</div>
+<span class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">2h ago</span>
+</div>
+<h4 class="text-slate-100 font-semibold mb-2 group-hover:text-primary transition-colors">Core API Reference</h4>
+<p class="text-slate-400 text-sm mb-6 leading-relaxed">Detailed technical specifications for all REST endpoints and WebSocket protocols.</p>
+<div class="space-y-2">
+<div class="flex justify-between text-xs">
+<span class="text-slate-500">Progress</span>
+<span class="text-primary font-bold">85%</span>
+</div>
+<div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 85%"></div>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-primary/5 border border-primary/10 rounded-xl p-5 hover:border-primary/40 transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined">security</span>
+</div>
+<span class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">5m ago</span>
+</div>
+<h4 class="text-slate-100 font-semibold mb-2 group-hover:text-primary transition-colors">Auth Integration</h4>
+<p class="text-slate-400 text-sm mb-6 leading-relaxed">Implementing secure OAuth2 workflows and JWT management for enterprise apps.</p>
+<div class="space-y-2">
+<div class="flex justify-between text-xs">
+<span class="text-slate-500">Progress</span>
+<span class="text-primary font-bold">42%</span>
+</div>
+<div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 42%"></div>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-primary/5 border border-primary/10 rounded-xl p-5 hover:border-primary/40 transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined">cloud_sync</span>
+</div>
+<span class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Yesterday</span>
+</div>
+<h4 class="text-slate-100 font-semibold mb-2 group-hover:text-primary transition-colors">Deployment Guides</h4>
+<p class="text-slate-400 text-sm mb-6 leading-relaxed">Configuring automated CI/CD pipelines with GitHub Actions and Docker containers.</p>
+<div class="space-y-2">
+<div class="flex justify-between text-xs">
+<span class="text-slate-500">Progress</span>
+<span class="text-primary font-bold">65%</span>
+</div>
+<div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 65%"></div>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-primary/5 border border-primary/10 rounded-xl p-5 hover:border-primary/40 transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined">database</span>
+</div>
+<span class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">3d ago</span>
+</div>
+<h4 class="text-slate-100 font-semibold mb-2 group-hover:text-primary transition-colors">Schema Design</h4>
+<p class="text-slate-400 text-sm mb-6 leading-relaxed">Best practices for relational database modeling and indexing for high-scale apps.</p>
+<div class="space-y-2">
+<div class="flex justify-between text-xs">
+<span class="text-slate-500">Progress</span>
+<span class="text-primary font-bold">12%</span>
+</div>
+<div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 12%"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- GitHub Repositories Section -->
+<section>
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">account_tree</span>
+<h3 class="text-xl font-bold">Repositories</h3>
+</div>
+<button class="text-sm text-primary hover:underline">Connect GitHub</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Repo 1 -->
+<div class="bg-transparent border border-primary/10 rounded-xl p-5 hover:bg-primary/5 transition-all">
+<div class="flex items-center gap-3 mb-3">
+<span class="material-symbols-outlined text-primary">code_blocks</span>
+<h4 class="text-slate-100 font-bold">ui-kit-pro</h4>
+</div>
+<p class="text-slate-400 text-xs mb-4">Highly customizable Tailwind CSS component library for enterprise dashboards.</p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex gap-4 text-xs font-semibold">
+<div class="flex items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-sm">star</span>
+                                        1.2k
+                                    </div>
+<div class="flex items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-sm">fork_right</span>
+                                        184
+                                    </div>
+</div>
+<span class="text-[10px] text-primary/80 bg-primary/10 px-2 py-0.5 rounded">Updated 2m ago</span>
+</div>
+</div>
+<!-- Repo 2 -->
+<div class="bg-transparent border border-primary/10 rounded-xl p-5 hover:bg-primary/5 transition-all">
+<div class="flex items-center gap-3 mb-3">
+<span class="material-symbols-outlined text-primary">schema</span>
+<h4 class="text-slate-100 font-bold">auth-service-v3</h4>
+</div>
+<p class="text-slate-400 text-xs mb-4">Microservice implementation for centralized identity management and RBAC.</p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex gap-4 text-xs font-semibold">
+<div class="flex items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-sm">star</span>
+                                        850
+                                    </div>
+<div class="flex items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-sm">fork_right</span>
+                                        42
+                                    </div>
+</div>
+<span class="text-[10px] text-primary/80 bg-primary/10 px-2 py-0.5 rounded">Updated 1h ago</span>
+</div>
+</div>
+<!-- Repo 3 -->
+<div class="bg-transparent border border-primary/10 rounded-xl p-5 hover:bg-primary/5 transition-all">
+<div class="flex items-center gap-3 mb-3">
+<span class="material-symbols-outlined text-primary">data_array</span>
+<h4 class="text-slate-100 font-bold">analytics-engine</h4>
+</div>
+<p class="text-slate-400 text-xs mb-4">Processing pipeline for real-time user event tracking and data aggregation.</p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex gap-4 text-xs font-semibold">
+<div class="flex items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-sm">star</span>
+                                        4.1k
+                                    </div>
+<div class="flex items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-sm">fork_right</span>
+                                        512
+                                    </div>
+</div>
+<span class="text-[10px] text-primary/80 bg-primary/10 px-2 py-0.5 rounded">Updated 6h ago</span>
+</div>
+</div>
+<!-- Repo 4 -->
+<div class="bg-transparent border border-primary/10 rounded-xl p-5 hover:bg-primary/5 transition-all">
+<div class="flex items-center gap-3 mb-3">
+<span class="material-symbols-outlined text-primary">terminal</span>
+<h4 class="text-slate-100 font-bold">cli-tools</h4>
+</div>
+<p class="text-slate-400 text-xs mb-4">Node.js based command line tools for rapid scaffolding of new projects.</p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex gap-4 text-xs font-semibold">
+<div class="flex items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-sm">star</span>
+                                        234
+                                    </div>
+<div class="flex items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-sm">fork_right</span>
+                                        12
+                                    </div>
+</div>
+<span class="text-[10px] text-primary/80 bg-primary/10 px-2 py-0.5 rounded">Updated 2d ago</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Terminal Widget -->
+<div class="lg:col-span-4 h-full">
+<div class="sticky top-8 bg-black rounded-xl border border-primary/30 overflow-hidden terminal-glow flex flex-col h-[700px]">
+<div class="bg-slate-900 px-4 py-2 flex items-center justify-between border-b border-primary/20">
+<div class="flex gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-red-500/50"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-yellow-500/50"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-green-500/50"></div>
+</div>
+<span class="text-[10px] font-mono text-primary/60 uppercase tracking-widest">DevHub_Terminal</span>
+<span class="material-symbols-outlined text-primary/60 text-sm">expand_content</span>
+</div>
+<div class="p-5 font-mono text-xs leading-relaxed flex-1 overflow-y-auto custom-scrollbar">
+<div class="text-primary mb-1">Last login: Fri Oct 27 10:24:55 on ttys001</div>
+<div class="text-slate-500 mb-4">$ devhub-tools --version 4.2.0</div>
+<div class="flex gap-2 mb-1">
+<span class="text-green-500">[OK]</span>
+<span class="text-slate-300">Successfully connected to primary nodes.</span>
+</div>
+<div class="flex gap-2 mb-1">
+<span class="text-primary">[INFO]</span>
+<span class="text-slate-300">Fetching remote repository metadata...</span>
+</div>
+<div class="flex gap-2 mb-1">
+<span class="text-primary">[INFO]</span>
+<span class="text-slate-300">Updating local cache for core-service-v3</span>
+</div>
+<div class="flex gap-2 mb-3">
+<span class="text-slate-500">Progress:</span>
+<span class="text-primary">[####################] 100%</span>
+</div>
+<div class="flex gap-2 mb-1">
+<span class="text-yellow-500">[WARN]</span>
+<span class="text-slate-300">Legacy dependency 'old-lib' found in analytics.</span>
+</div>
+<div class="flex gap-2 mb-1">
+<span class="text-primary">[INFO]</span>
+<span class="text-slate-300">Initiating deployment sequence...</span>
+</div>
+<div class="flex gap-2 mb-1">
+<span class="text-primary">[INFO]</span>
+<span class="text-slate-300">Allocating cluster resources...</span>
+</div>
+<div class="flex gap-2 mb-1">
+<span class="text-green-500">[SUCCESS]</span>
+<span class="text-slate-300">Cluster 4A ready for production traffic.</span>
+</div>
+<div class="flex gap-2 mb-1">
+<span class="text-primary">[INFO]</span>
+<span class="text-slate-300">Syncing with AWS us-east-1...</span>
+</div>
+<div class="flex gap-2 mb-1">
+<span class="text-primary">[INFO]</span>
+<span class="text-slate-300">Validating SSL certificates...</span>
+</div>
+<div class="flex gap-2 mb-1">
+<span class="text-slate-500 animate-pulse">_</span>
+</div>
+<!-- Extra filler for scroll effect -->
+<div class="text-slate-600 mt-10 italic opacity-50">System background tasks active...</div>
+<div class="flex gap-2 mb-1 opacity-50">
+<span class="text-primary">[DAEMON]</span>
+<span class="text-slate-300">Log rotation completed.</span>
+</div>
+<div class="flex gap-2 mb-1 opacity-50">
+<span class="text-primary">[DAEMON]</span>
+<span class="text-slate-300">Health checks: 100% healthy nodes.</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="mt-20 border-t border-primary/10 pt-8 pb-12 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="text-slate-500 text-sm">
+                © 2024 DevHub Resources. Built for the modern developer.
+            </div>
+<div class="flex gap-6">
+<a class="text-slate-500 hover:text-primary transition-colors" href="#">Documentation</a>
+<a class="text-slate-500 hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-slate-500 hover:text-primary transition-colors" href="#">Support</a>
+<a class="text-slate-500 hover:text-primary transition-colors" href="#">Status</a>
+</div>
+</footer>
+</div>
+</body></html>

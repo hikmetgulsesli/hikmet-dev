@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hikmet Gulsesli - Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Nunito+Sans:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#42b6f0",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Sora", "sans-serif"],
+                        "body": ["Nunito Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+        }
+        h1, h2, h3, h4, .font-display {
+            font-family: 'Sora', sans-serif;
+        }
+        .bg-custom-dark {
+            background-color: oklch(0.15 0 0);
+        }
+        .text-accent {
+            color: oklch(0.70 0.15 200);
+        }
+        .bg-accent {
+            background-color: oklch(0.70 0.15 200);
+        }
+        .border-accent {
+            border-color: oklch(0.70 0.15 200 / 0.2);
+        }
+    </style>
+</head>
+<body class="bg-custom-dark text-slate-100 min-h-screen">
+<header class="sticky top-0 z-50 w-full backdrop-blur-md bg-custom-dark/80 border-b border-white/10">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2 group cursor-pointer">
+<div class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center text-background-dark">
+<span class="material-symbols-outlined font-bold text-lg">terminal</span>
+</div>
+<h2 class="text-xl font-extrabold tracking-tight text-white group-hover:text-accent transition-colors">Hikmet Gulsesli</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-sm font-semibold text-slate-300 hover:text-accent transition-colors" href="#">Home</a>
+<a class="text-sm font-semibold text-slate-300 hover:text-accent transition-colors" href="#">Projects</a>
+<a class="text-sm font-semibold text-slate-300 hover:text-accent transition-colors" href="#">Resources</a>
+<a class="text-sm font-semibold text-slate-300 hover:text-accent transition-colors" href="#">Writing</a>
+</nav>
+</div>
+<div class="flex items-center gap-3">
+<div class="hidden lg:flex items-center gap-2 mr-4">
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-bold hover:bg-white/10 transition-all">
+<span>Theme</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+<div class="flex items-center gap-1 border-r border-white/10 pr-3 mr-3">
+<button class="p-2 rounded-lg text-slate-400 hover:text-accent hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined">account_tree</span>
+</button>
+<button class="p-2 rounded-lg text-slate-400 hover:text-accent hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined">forum</span>
+</button>
+<button class="p-2 rounded-lg text-slate-400 hover:text-accent hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined">group</span>
+</button>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-lg bg-accent/10 text-accent hover:bg-accent/20 transition-all">
+<span class="material-symbols-outlined">light_mode</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
+<div class="flex flex-col gap-6">
+<div class="inline-flex items-center self-start gap-2.5 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+</span>
+<span class="text-xs font-bold text-emerald-400 tracking-wide uppercase">10 agents live</span>
+</div>
+<div class="max-w-3xl">
+<h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight tracking-tighter mb-6">
+                    Building the future of <span class="text-accent">autonomous</span> interfaces.
+                </h1>
+<p class="text-lg md:text-xl text-slate-400 leading-relaxed font-light">
+                    Sora and Nunito Sans typography implementation with dark mode aesthetics. 
+                    Exploring the intersection of generative AI and user experience design.
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+<div class="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/50 transition-all group">
+<div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">auto_awesome</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">AI Integration</h3>
+<p class="text-slate-400 text-sm leading-6">Implementing state-of-the-art LLM capabilities into modern web architectures.</p>
+</div>
+<div class="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/50 transition-all group">
+<div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">layers</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">Design Systems</h3>
+<p class="text-slate-400 text-sm leading-6">Scalable UI kits and component libraries built with Tailwind and modern CSS features.</p>
+</div>
+<div class="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/50 transition-all group">
+<div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">bolt</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">High Performance</h3>
+<p class="text-slate-400 text-sm leading-6">Optimized for speed and accessibility, ensuring a premium user experience across all devices.</p>
+</div>
+</div>
+<div class="mt-20 relative rounded-3xl overflow-hidden aspect-video border border-white/10">
+<div class="absolute inset-0 bg-gradient-to-t from-custom-dark via-transparent to-transparent z-10"></div>
+<div class="absolute inset-0 bg-accent/5 mix-blend-overlay"></div>
+<img alt="Project Preview" class="w-full h-full object-cover opacity-60" data-alt="Abstract dark minimalist digital art background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgbjObHDGTo1l6PzcyU4VYIQMofb1mk7rt6je2h1SnbCSaxrNPmk7BIBexXpO6wJc4cNPycxv3edTSrSg3VoOcTONGk1aEBPQiCM6s_JBqpmq7PU-fVyDUtF0uk7fgz0zRF-YAr32_JwnGOQqhxWg4ewzyrFTN30q1jgX6CQ4cAok4qogKVtOOC_Y7YY_SshkN4ErKm45uZVn8Exn2A9WRcfv09IVbCoHEAdPNmVj5aHuVN01aQ9bO81wgDsQ1A9TCA8LcdC1aGwM"/>
+<div class="absolute bottom-8 left-8 z-20">
+<h2 class="text-3xl font-bold text-white mb-2">Project Hyperion</h2>
+<p class="text-slate-300">A new way to visualize complex neural networks.</p>
+</div>
+</div>
+</div>
+</main>
+<footer class="mt-32 border-t border-white/10 py-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="text-center md:text-left">
+<p class="text-slate-500 text-sm">© 2024 Hikmet Gulsesli. Built with precision.</p>
+</div>
+<div class="flex gap-6">
+<a class="text-slate-500 hover:text-accent transition-colors" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+<a class="text-slate-500 hover:text-accent transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-slate-500 hover:text-accent transition-colors" href="#"><span class="material-symbols-outlined">rss_feed</span></a>
+</div>
+</div>
+</footer>
+</body></html>
