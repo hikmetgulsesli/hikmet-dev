@@ -1,7 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { BlogCard } from "./BlogCard";
-import { Calendar, ArrowRight } from "lucide-react";
 
 describe("BlogCard", () => {
   const defaultProps = {

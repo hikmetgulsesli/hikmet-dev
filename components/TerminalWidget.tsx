@@ -33,6 +33,9 @@ const levelLabels = {
 export function TerminalWidget({ logs, title = "DevHub_Terminal" }: TerminalWidgetProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [expanded, setExpanded] = useState(false);
+  const [lastLogin] = useState<string>(() =>
+    new Date().toLocaleString("tr-TR", { dateStyle: "medium", timeStyle: "short" })
+  );
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -70,8 +73,8 @@ export function TerminalWidget({ logs, title = "DevHub_Terminal" }: TerminalWidg
         ref={scrollRef}
         className="p-5 font-mono text-xs leading-relaxed flex-1 overflow-y-auto custom-scrollbar"
       >
-        <div className="text-primary mb-1" suppressHydrationWarning>
-          Last login: <span suppressHydrationWarning>{new Date().toLocaleString("tr-TR", { dateStyle: "medium", timeStyle: "short" })}</span>
+        <div className="text-primary mb-1">
+          Last login: <span suppressHydrationWarning>{lastLogin}</span>
         </div>
         <div className="text-slate-500 mb-4">$ openclaw --version 2.0.0</div>
 

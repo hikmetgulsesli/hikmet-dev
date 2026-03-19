@@ -45,7 +45,7 @@ export function DocCard({
       <h4 className="text-slate-900 dark:text-slate-100 font-semibold mb-2 group-hover:text-primary transition-colors">
         {title}
       </h4>
-      <p className="text-slate-400 dark:text-slate-400 text-sm mb-4 leading-relaxed line-clamp-2">{description}</p>
+      <p className="text-slate-600 dark:text-slate-400 text-sm mb-4 leading-relaxed line-clamp-2">{description}</p>
       {progress !== undefined && (
         <div className="space-y-2 mt-auto">
           <div className="flex justify-between text-xs">

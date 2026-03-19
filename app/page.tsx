@@ -126,9 +126,12 @@ export default function Home() {
               <div className="flex items-center gap-2 mb-6">
                 <BookOpen className="w-5 h-5 text-primary" />
                 <h3 className="text-xl font-bold text-slate-900 dark:text-white">Documentation</h3>
-                <span className="text-sm text-primary/50 ml-auto">
+                <a
+                  href="/docs"
+                  className="text-sm text-primary hover:underline ml-auto"
+                >
                   View all
-                </span>
+                </a>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {docsCards.map((doc) => (
@@ -137,8 +140,8 @@ export default function Home() {
                     title={doc.title}
                     description={doc.description}
                     icon={doc.icon}
-                    progress={75}
-                    lastActivity="2h ago"
+                    progress={doc.progress}
+                    lastActivity={doc.lastActivity}
                     link={doc.link}
                   />
                 ))}
