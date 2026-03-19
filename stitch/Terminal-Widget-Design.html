@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#0df20d",
+            "accent": "#00f2ff",
+            "background-light": "#f5f8f5",
+            "background-dark": "#000000",
+          },
+          fontFamily: {
+            "display": ["Space Grotesk", "monospace"]
+          },
+          borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      background-color: #000000;
+    }
+    .terminal-cursor {
+      display: inline-block;
+      width: 8px;
+      height: 18px;
+      background-color: #0df20d;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+    .ascii-art {
+      line-height: 1;
+      font-family: 'Courier New', Courier, monospace;
+    }
+    .status-ok { color: #0df20d; }
+    .status-info { color: #00f2ff; }
+    .timestamp { color: #4b5563; }
+  </style>
+</head>
+<body class="font-display bg-background-dark text-slate-100 flex items-center justify-center min-h-screen p-4 md:p-10">
+<!-- Terminal Window Container -->
+<div class="w-full max-w-4xl bg-[#0a0a0a] rounded-xl border border-primary/20 shadow-[0_0_40px_rgba(13,242,13,0.1)] overflow-hidden flex flex-col h-[700px]">
+<!-- Chrome-style Header -->
+<header class="flex items-center justify-between bg-[#111] px-4 py-3 border-b border-primary/10 select-none">
+<!-- Window Controls -->
+<div class="flex gap-2 w-1/4">
+<div class="size-3 rounded-full bg-[#ff5f56]"></div>
+<div class="size-3 rounded-full bg-[#ffbd2e]"></div>
+<div class="size-3 rounded-full bg-[#27c93f]"></div>
+</div>
+<!-- Title -->
+<div class="text-xs md:text-sm text-slate-400 font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]">terminal</span>
+        bash — user@portfolio — 80x24
+      </div>
+<!-- Utility Icons -->
+<div class="flex gap-3 w-1/4 justify-end text-slate-400">
+<button class="hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">minimize</span>
+</button>
+<button class="hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">open_in_full</span>
+</button>
+</div>
+</header>
+<!-- Terminal Content Area -->
+<main class="flex-1 p-6 overflow-y-auto font-mono text-sm md:text-base selection:bg-primary/30 selection:text-primary">
+<!-- ASCII Art Section -->
+<div class="text-accent mb-8 ascii-art font-bold text-center sm:text-left overflow-x-hidden">
+<pre class="inline-block">██████   ███████  ██    ██ 
+██   ██  ██       ██    ██ 
+██   ██  █████    ██    ██ 
+██   ██  ██        ██  ██  
+██████   ███████    ████   
+        </pre>
+</div>
+<!-- Log Output Section -->
+<div class="space-y-1.5 mb-8">
+<div class="flex flex-wrap gap-2">
+<span class="timestamp">[14:32:01]</span>
+<span class="status-ok font-bold">[OK]</span>
+<span class="text-slate-300">Connecting to API gateway...</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="timestamp">[14:32:05]</span>
+<span class="status-info font-bold">[INFO]</span>
+<span class="text-slate-300">Syncing workflow database...</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="timestamp">[14:32:10]</span>
+<span class="status-ok font-bold">[OK]</span>
+<span class="text-slate-300">Establishing secure handshake...</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="timestamp">[14:32:12]</span>
+<span class="status-info font-bold">[INFO]</span>
+<span class="text-slate-300">Loading developer profile assets...</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="timestamp">[14:32:15]</span>
+<span class="status-ok font-bold">[OK]</span>
+<span class="text-slate-300">System core initialized. Welcome, developer.</span>
+</div>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="text-slate-400">Type 'help' to see available commands.</span>
+</div>
+</div>
+<!-- Interactive Prompt -->
+<div class="flex items-center gap-2 group">
+<span class="text-primary font-bold">$</span>
+<span class="text-accent font-medium">portfolio</span>
+<span class="text-slate-100">init</span>
+<span class="terminal-cursor"></span>
+</div>
+</main>
+<!-- Terminal Footer/Status Bar -->
+<footer class="bg-[#111] px-4 py-2 border-t border-primary/10 flex justify-between items-center text-[10px] uppercase tracking-widest text-slate-500 font-bold">
+<div class="flex gap-4">
+<div class="flex items-center gap-1">
+<span class="size-2 rounded-full bg-primary shadow-[0_0_5px_#0df20d]"></span>
+          CONNECTED
+        </div>
+<div>UTF-8</div>
+</div>
+<div class="flex gap-4">
+<div>MAIN.PY</div>
+<div class="text-primary">LN 42, COL 18</div>
+</div>
+</footer>
+</div>
+<!-- Background Decorative Elements -->
+<div class="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 opacity-20">
+<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-[120px]"></div>
+</div>
+</body></html>

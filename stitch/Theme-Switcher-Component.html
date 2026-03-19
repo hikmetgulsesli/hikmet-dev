@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Theme Settings Interface</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#6aafcd",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#141b1e",
+                        "surface-dark": "#1a2124",
+                    },
+                    fontFamily: {
+                        "display": ["Sora", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Sora', sans-serif;
+            background-color: #141b1e; /* Matching background-dark */
+        }
+        .theme-option:hover {
+            background-color: rgba(106, 175, 205, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen font-display">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 px-6 py-4 md:px-20 lg:px-40 bg-white/50 dark:bg-background-dark/50 backdrop-blur-md sticky top-0 z-50">
+<div class="flex items-center gap-3">
+<div class="size-8 flex items-center justify-center rounded-lg bg-primary text-white">
+<span class="material-symbols-outlined text-2xl">auto_awesome</span>
+</div>
+<h2 class="text-xl font-extrabold tracking-tight">System UI</h2>
+</div>
+<div class="flex items-center gap-3">
+<!-- Light/Dark Toggle -->
+<button class="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-200 dark:bg-surface-dark text-slate-700 dark:text-slate-300 hover:ring-2 hover:ring-primary/50 transition-all">
+<span class="material-symbols-outlined dark:hidden">light_mode</span>
+<span class="material-symbols-outlined hidden dark:block">dark_mode</span>
+</button>
+<!-- Theme Menu Trigger -->
+<button class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white hover:shadow-lg hover:shadow-primary/20 transition-all">
+<span class="material-symbols-outlined">palette</span>
+</button>
+</div>
+</header>
+<main class="flex-1 flex flex-col items-center py-12 px-6">
+<div class="w-full max-w-2xl">
+<!-- Theme Settings Heading -->
+<div class="mb-8">
+<h1 class="text-3xl font-extrabold mb-2">Theme Preferences</h1>
+<p class="text-slate-500 dark:text-slate-400">Personalize your workspace with curated color palettes.</p>
+</div>
+<!-- Theme Switcher Card/Dropdown Representation -->
+<div class="bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl overflow-hidden mb-10">
+<div class="p-6 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center">
+<span class="font-bold text-lg">Active Preset</span>
+<span class="text-xs font-bold uppercase tracking-widest text-primary bg-primary/10 px-2 py-1 rounded">Default</span>
+</div>
+<div class="p-2">
+<!-- Theme Option: Dark (Default) -->
+<div class="theme-option flex items-center justify-between p-4 rounded-xl cursor-pointer transition-colors group">
+<div class="flex items-center gap-4">
+<div class="h-10 w-10 rounded-full bg-slate-900 border-2 border-slate-700 flex items-center justify-center shadow-inner">
+<div class="h-4 w-4 rounded-full bg-slate-400"></div>
+</div>
+<div>
+<p class="font-bold">Dark Mode</p>
+<p class="text-xs text-slate-500">Professional &amp; sleek obsidian interface</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary font-bold">check</span>
+</div>
+<!-- Theme Option: Light -->
+<div class="theme-option flex items-center justify-between p-4 rounded-xl cursor-pointer transition-colors group">
+<div class="flex items-center gap-4">
+<div class="h-10 w-10 rounded-full bg-slate-100 border-2 border-slate-300 flex items-center justify-center shadow-inner">
+<div class="h-4 w-4 rounded-full bg-primary"></div>
+</div>
+<div>
+<p class="font-bold">Light Mode</p>
+<p class="text-xs text-slate-500">Clean and bright paper experience</p>
+</div>
+</div>
+<div class="w-6 h-6"></div> <!-- Empty spacer for checkmark -->
+</div>
+<!-- Theme Option: Cyan -->
+<div class="theme-option flex items-center justify-between p-4 rounded-xl cursor-pointer transition-colors group">
+<div class="flex items-center gap-4">
+<div class="h-10 w-10 rounded-full bg-cyan-900 border-2 border-cyan-500 flex items-center justify-center shadow-inner">
+<div class="h-4 w-4 rounded-full bg-cyan-300"></div>
+</div>
+<div>
+<p class="font-bold">Cyan Breeze</p>
+<p class="text-xs text-slate-500">Refreshing ocean-inspired tones</p>
+</div>
+</div>
+<div class="w-6 h-6"></div>
+</div>
+<!-- Theme Option: Purple -->
+<div class="theme-option flex items-center justify-between p-4 rounded-xl cursor-pointer transition-colors group">
+<div class="flex items-center gap-4">
+<div class="h-10 w-10 rounded-full bg-purple-900 border-2 border-purple-500 flex items-center justify-center shadow-inner">
+<div class="h-4 w-4 rounded-full bg-purple-300"></div>
+</div>
+<div>
+<p class="font-bold">Midnight Purple</p>
+<p class="text-xs text-slate-500">Vibrant and creative atmosphere</p>
+</div>
+</div>
+<div class="w-6 h-6"></div>
+</div>
+</div>
+</div>
+<!-- Layout Preview Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="p-6 rounded-2xl bg-primary/10 border border-primary/20 flex flex-col gap-3">
+<span class="material-symbols-outlined text-primary text-3xl">brush</span>
+<h3 class="font-bold text-lg">Visual Comfort</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400">Switching themes adjusts text contrast and background hues to reduce eye strain during long sessions.</p>
+</div>
+<div class="p-6 rounded-2xl bg-slate-100 dark:bg-surface-dark border border-slate-200 dark:border-slate-800 flex flex-col gap-3">
+<span class="material-symbols-outlined text-slate-500 text-3xl">settings_suggest</span>
+<h3 class="font-bold text-lg">Auto Sync</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400">Enable system synchronization to automatically switch themes based on your device schedule.</p>
+<div class="mt-2 flex items-center gap-2">
+<div class="w-10 h-5 bg-primary rounded-full relative">
+<div class="absolute right-1 top-1 size-3 bg-white rounded-full"></div>
+</div>
+<span class="text-xs font-medium">Sync enabled</span>
+</div>
+</div>
+</div>
+<!-- Showcase Cards -->
+<div class="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="aspect-square rounded-xl bg-slate-900 border-4 border-primary p-2 flex items-end shadow-lg" data-alt="Dark theme abstract background color preview">
+<span class="text-[10px] font-bold text-white uppercase opacity-60">Dark</span>
+</div>
+<div class="aspect-square rounded-xl bg-slate-100 border-2 border-slate-200 p-2 flex items-end shadow-md" data-alt="Light theme abstract white background color preview">
+<span class="text-[10px] font-bold text-slate-400 uppercase">Light</span>
+</div>
+<div class="aspect-square rounded-xl bg-cyan-600 border-2 border-cyan-400 p-2 flex items-end shadow-md" data-alt="Cyan theme vibrant blue background color preview">
+<span class="text-[10px] font-bold text-white uppercase">Cyan</span>
+</div>
+<div class="aspect-square rounded-xl bg-purple-600 border-2 border-purple-400 p-2 flex items-end shadow-md" data-alt="Purple theme creative violet background color preview">
+<span class="text-[10px] font-bold text-white uppercase">Purple</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Simple Footer -->
+<footer class="py-10 text-center text-slate-500 text-sm border-t border-slate-200 dark:border-slate-800">
+<p>© 2024 Theme Engine. Optimized for Sora Font.</p>
+</footer>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Workbench Pro | Developer Resources</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Nunito+Sans:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00ffff",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0b1414",
+                        "surface-dark": "#162525",
+                        "border-dark": "#243a3a",
+                    },
+                    fontFamily: {
+                        "display": ["Sora", "sans-serif"],
+                        "body": ["Nunito Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+        }
+        h1, h2, h3, h4, .font-display {
+            font-family: 'Sora', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0b1414;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #243a3a;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #00ffff;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<header class="flex items-center justify-between border-b border-border-dark bg-background-dark/80 backdrop-blur-md sticky top-0 z-50 px-6 py-3 lg:px-12">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3">
+<div class="size-9 bg-primary flex items-center justify-center rounded-lg shadow-[0_0_15px_rgba(0,255,255,0.3)]">
+<span class="material-symbols-outlined text-background-dark font-bold">terminal</span>
+</div>
+<h2 class="text-white text-xl font-extrabold tracking-tight font-display">Workbench<span class="text-primary">.</span></h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-400 hover:text-primary text-sm font-semibold transition-colors" href="#">Dashboard</a>
+<a class="text-primary text-sm font-semibold border-b-2 border-primary pb-1" href="#">Resources</a>
+<a class="text-slate-400 hover:text-primary text-sm font-semibold transition-colors" href="#">API Keys</a>
+<a class="text-slate-400 hover:text-primary text-sm font-semibold transition-colors" href="#">Logs</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-lg">search</span>
+<input class="bg-surface-dark border-border-dark text-sm rounded-lg pl-10 pr-4 py-2 w-64 focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="Search documentation..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-400 hover:text-primary hover:bg-surface-dark rounded-lg transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-primary hover:bg-surface-dark rounded-lg transition-all">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="h-8 w-[1px] bg-border-dark mx-2"></div>
+<div class="flex items-center gap-3 pl-2">
+<div class="size-9 rounded-full bg-gradient-to-tr from-primary to-blue-500 p-[2px]">
+<img alt="User avatar profile picture" class="rounded-full w-full h-full object-cover" data-alt="Developer profile avatar image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAw7PEqN3F_v9Ju73IPvbr8WbEyq7JXi_xkBsrkhoyR6hZeBRSe7EmvdyW8dsRj8mN1IeLXzYj4fXM7TFLIxAFzaGqvSZ94EaeAMwkawaPQR2xg4kmYIYlkuYmf4FaMy5Ix1ku7ayFgxK1_3Eaw9SSzlFQBZj1wZed4jl4dF_EXAgcWq_L0_SONwW9OIyL4IGuojcvGzSPAhlnLrp2jV8mPcct_4xYlZftIYOEFH3gVRY1_UNcO06vWlIwpY7z7St11qzsCNCgcggY"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1 max-w-7xl mx-auto w-full p-6 lg:p-12">
+<section class="mb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+<div>
+<span class="text-primary text-sm font-bold tracking-widest uppercase mb-2 block">Central Hub</span>
+<h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4 font-display">Developer Resources</h1>
+<p class="text-slate-400 max-w-2xl text-lg">Everything you need to build high-performance applications. Access UI kits, core services, and detailed API references.</p>
+</div>
+<div class="flex gap-3">
+<button class="bg-primary text-background-dark px-6 py-2.5 rounded-lg font-bold text-sm flex items-center gap-2 hover:bg-primary/90 transition-all shadow-[0_0_20px_rgba(0,255,255,0.2)]">
+<span class="material-symbols-outlined text-lg">add</span>
+                            New Project
+                        </button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="group bg-surface-dark border border-border-dark rounded-xl p-6 hover:border-primary/50 transition-all cursor-pointer relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full -mr-12 -mt-12 group-hover:bg-primary/10 transition-all"></div>
+<div class="size-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 text-primary">
+<span class="material-symbols-outlined text-3xl">style</span>
+</div>
+<h3 class="text-white text-xl font-bold mb-2 group-hover:text-primary transition-colors">Cyan Pro UI Kit</h3>
+<p class="text-slate-400 text-sm leading-relaxed mb-6">A production-ready design system with 200+ components, optimized for dark mode interfaces.</p>
+<div class="flex items-center justify-between">
+<span class="text-xs font-mono text-slate-500 uppercase tracking-widest">v2.4.0</span>
+<span class="material-symbols-outlined text-primary opacity-0 group-hover:opacity-100 transition-all translate-x-4 group-hover:translate-x-0">arrow_forward</span>
+</div>
+</div>
+<div class="group bg-surface-dark border border-border-dark rounded-xl p-6 hover:border-primary/50 transition-all cursor-pointer relative overflow-hidden">
+<div class="size-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 text-primary">
+<span class="material-symbols-outlined text-3xl">lock</span>
+</div>
+<h3 class="text-white text-xl font-bold mb-2 group-hover:text-primary transition-colors">Auth Service v2</h3>
+<p class="text-slate-400 text-sm leading-relaxed mb-6">Robust OAuth 2.0 and JWT implementation with native support for multi-factor authentication.</p>
+<div class="flex items-center justify-between">
+<span class="text-xs font-mono text-slate-500 uppercase tracking-widest">Active</span>
+<span class="material-symbols-outlined text-primary opacity-0 group-hover:opacity-100 transition-all translate-x-4 group-hover:translate-x-0">arrow_forward</span>
+</div>
+</div>
+<div class="group bg-surface-dark border border-border-dark rounded-xl p-6 hover:border-primary/50 transition-all cursor-pointer relative overflow-hidden">
+<div class="size-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 text-primary">
+<span class="material-symbols-outlined text-3xl">database</span>
+</div>
+<h3 class="text-white text-xl font-bold mb-2 group-hover:text-primary transition-colors">Edge Cache Proxy</h3>
+<p class="text-slate-400 text-sm leading-relaxed mb-6">Ultra-low latency global caching layer for your static and dynamic assets with instant purging.</p>
+<div class="flex items-center justify-between">
+<span class="text-xs font-mono text-slate-500 uppercase tracking-widest">Beta</span>
+<span class="material-symbols-outlined text-primary opacity-0 group-hover:opacity-100 transition-all translate-x-4 group-hover:translate-x-0">arrow_forward</span>
+</div>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<section class="lg:col-span-2">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-2xl font-bold text-white font-display">API Reference Status</h2>
+<a class="text-primary text-sm font-semibold flex items-center gap-1 hover:underline" href="#">
+                            View Docs <span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
+</div>
+<div class="space-y-4">
+<div class="bg-surface-dark/50 border border-border-dark rounded-xl p-5 hover:bg-surface-dark transition-colors">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="font-bold text-white">Identity API</span>
+</div>
+<span class="text-xs font-mono text-slate-400 tracking-tighter">99.98% Uptime</span>
+</div>
+<div class="w-full bg-border-dark h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[94%]" style="box-shadow: 0 0 10px rgba(0,255,255,0.4)"></div>
+</div>
+<div class="flex justify-between mt-2">
+<span class="text-[10px] text-slate-500 uppercase font-bold">Latency: 45ms</span>
+<span class="text-[10px] text-slate-500 uppercase font-bold">94% Request Load</span>
+</div>
+</div>
+<div class="bg-surface-dark/50 border border-border-dark rounded-xl p-5 hover:bg-surface-dark transition-colors">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<span class="font-bold text-white">Asset Store API</span>
+</div>
+<span class="text-xs font-mono text-slate-400 tracking-tighter">100% Uptime</span>
+</div>
+<div class="w-full bg-border-dark h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[28%]" style="box-shadow: 0 0 10px rgba(0,255,255,0.4)"></div>
+</div>
+<div class="flex justify-between mt-2">
+<span class="text-[10px] text-slate-500 uppercase font-bold">Latency: 12ms</span>
+<span class="text-[10px] text-slate-500 uppercase font-bold">28% Request Load</span>
+</div>
+</div>
+<div class="bg-surface-dark/50 border border-border-dark rounded-xl p-5 hover:bg-surface-dark transition-colors">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-yellow-500"></div>
+<span class="font-bold text-white">Compute Engine</span>
+</div>
+<span class="text-xs font-mono text-slate-400 tracking-tighter">Degraded Performance</span>
+</div>
+<div class="w-full bg-border-dark h-2 rounded-full overflow-hidden">
+<div class="bg-yellow-500 h-full w-[88%]"></div>
+</div>
+<div class="flex justify-between mt-2">
+<span class="text-[10px] text-slate-500 uppercase font-bold">Latency: 420ms</span>
+<span class="text-[10px] text-slate-500 uppercase font-bold">88% Request Load</span>
+</div>
+</div>
+</div>
+</section>
+<section class="lg:col-span-1">
+<h2 class="text-2xl font-bold text-white mb-6 font-display">System Terminal</h2>
+<div class="bg-black rounded-xl border border-border-dark overflow-hidden flex flex-col h-[320px] shadow-2xl">
+<div class="bg-surface-dark px-4 py-2 border-b border-border-dark flex items-center justify-between">
+<div class="flex gap-1.5">
+<div class="size-2.5 rounded-full bg-red-500/50"></div>
+<div class="size-2.5 rounded-full bg-yellow-500/50"></div>
+<div class="size-2.5 rounded-full bg-green-500/50"></div>
+</div>
+<span class="text-[10px] font-mono text-slate-500 uppercase tracking-widest font-bold">zsh — workbench-pro</span>
+<span class="material-symbols-outlined text-slate-500 text-sm">content_copy</span>
+</div>
+<div class="p-4 font-mono text-xs overflow-y-auto custom-scrollbar flex-1 space-y-1">
+<p class="text-slate-500">Last login: Wed Oct 25 14:22:01 on ttys001</p>
+<p class="text-green-400">➜ <span class="text-primary">workbench</span> <span class="text-slate-300">init-project my-app</span></p>
+<p class="text-slate-400">Initializing Workbench environment...</p>
+<p class="text-slate-400">Checking local dependencies [OK]</p>
+<p class="text-slate-400">Connecting to <span class="text-primary">auth-service-v2</span>... Connected.</p>
+<p class="text-slate-400">Fetching schema definitions...</p>
+<p class="text-slate-400">Generating TypeScript types...</p>
+<p class="text-green-400">✔ Project successfully initialized!</p>
+<p class="text-slate-300 mt-2">Try running <span class="text-primary">npm start</span> to begin.</p>
+<p class="text-green-400">➜ <span class="text-primary">workbench</span> <span class="text-slate-300">tail -f logs</span></p>
+<p class="text-blue-400">[14:24:02] INFO: Request received - GET /api/v1/user</p>
+<p class="text-blue-400">[14:24:02] INFO: Cache hit - edge_region_us_east_1</p>
+<p class="text-yellow-400">[14:24:05] WARN: Compute engine latency spike (420ms)</p>
+<p class="text-slate-400 animate-pulse">_</p>
+</div>
+</div>
+</section>
+</div>
+<section class="mt-12 grid grid-cols-1 md:grid-cols-4 gap-6">
+<div class="bg-surface-dark/30 border border-border-dark rounded-xl p-4 flex items-center gap-4">
+<div class="size-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div>
+<p class="text-white text-sm font-bold">API Docs</p>
+<p class="text-slate-500 text-xs">v2.4.0 Updated</p>
+</div>
+</div>
+<div class="bg-surface-dark/30 border border-border-dark rounded-xl p-4 flex items-center gap-4">
+<div class="size-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">forum</span>
+</div>
+<div>
+<p class="text-white text-sm font-bold">Discord Community</p>
+<p class="text-slate-500 text-xs">12.4k Members</p>
+</div>
+</div>
+<div class="bg-surface-dark/30 border border-border-dark rounded-xl p-4 flex items-center gap-4">
+<div class="size-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">code_blocks</span>
+</div>
+<div>
+<p class="text-white text-sm font-bold">Example Repo</p>
+<p class="text-slate-500 text-xs">React, Vue, Svelte</p>
+</div>
+</div>
+<div class="bg-surface-dark/30 border border-border-dark rounded-xl p-4 flex items-center gap-4">
+<div class="size-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">contact_support</span>
+</div>
+<div>
+<p class="text-white text-sm font-bold">Direct Support</p>
+<p class="text-slate-500 text-xs">24/7 Availability</p>
+</div>
+</div>
+</section>
+</main>
+<footer class="border-t border-border-dark bg-background-dark py-8 px-6 lg:px-12 mt-auto">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex items-center gap-2">
+<div class="size-6 bg-primary/20 flex items-center justify-center rounded text-primary">
+<span class="material-symbols-outlined text-sm">terminal</span>
+</div>
+<span class="text-slate-400 text-sm font-display font-semibold">Workbench Pro © 2024</span>
+</div>
+<div class="flex gap-8">
+<a class="text-slate-500 hover:text-primary text-xs font-bold uppercase tracking-widest transition-colors" href="#">Privacy Policy</a>
+<a class="text-slate-500 hover:text-primary text-xs font-bold uppercase tracking-widest transition-colors" href="#">Terms of Service</a>
+<a class="text-slate-500 hover:text-primary text-xs font-bold uppercase tracking-widest transition-colors" href="#">Security</a>
+</div>
+<div class="flex gap-4">
+<span class="size-2 rounded-full bg-primary shadow-[0_0_8px_rgba(0,255,255,0.8)]"></span>
+<span class="text-slate-300 text-xs font-mono">All Systems Operational</span>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

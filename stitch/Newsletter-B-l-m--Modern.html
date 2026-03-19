@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Sora:wght@600;700&amp;family=Nunito+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#00c2db", // Approx oklch(0.70 0.15 200)
+              "background-light": "#f5f8f8",
+              "background-dark": "#0f2123", // Dark theme background
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"],
+              "sora": ["Sora", "sans-serif"],
+              "nunito": ["Nunito Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0f2123; /* oklch(0.15 0 0) equivalent */
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex items-center justify-center p-6">
+<div class="max-w-4xl w-full space-y-12">
+<!-- Main Newsletter CTA Section -->
+<section class="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary via-cyan-600 to-teal-600 p-8 md:p-12 shadow-2xl">
+<!-- Decorative Elements -->
+<div class="absolute top-0 right-0 -mt-20 -mr-20 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+<div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-64 h-64 bg-black/10 rounded-full blur-3xl"></div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<h2 class="font-sora text-3xl md:text-4xl font-bold text-white mb-4">
+                    Bültenimize Katılın
+                </h2>
+<p class="font-nunito text-lg text-white/90 max-w-xl mb-8">
+                    En yeni teknoloji haberleri, tasarım trendleri ve özel içerikler doğrudan gelen kutunuza gelsin.
+                </p>
+<form class="w-full max-w-md flex flex-col sm:flex-row gap-3">
+<div class="relative flex-grow">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400">
+<span class="material-icons text-lg">mail_outline</span>
+</span>
+<input class="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 backdrop-blur-sm" placeholder="E-posta adresiniz" type="email"/>
+</div>
+<button class="bg-white text-teal-700 font-bold px-8 py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-slate-100 transition-colors shadow-lg" type="button">
+<span>Abone Ol</span>
+<span class="material-icons text-sm">send</span>
+</button>
+</form>
+</div>
+</section>
+<!-- Component States Mockup -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- State 1: Error -->
+<div class="bg-background-light dark:bg-slate-800/50 p-6 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
+<h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-4">Hata Durumu</h3>
+<div class="space-y-4">
+<div class="relative">
+<input class="w-full pl-4 pr-4 py-3 bg-white dark:bg-background-dark border-red-500 dark:border-red-500 rounded-lg text-slate-900 dark:text-slate-100 focus:ring-red-500" type="email" value="gecersiz-email"/>
+</div>
+<div class="flex items-center gap-2 text-red-500 font-nunito text-sm">
+<span class="material-icons text-base">error_outline</span>
+<span>Geçerli bir email giriniz</span>
+</div>
+</div>
+</div>
+<!-- State 2: Success -->
+<div class="bg-background-light dark:bg-slate-800/50 p-6 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
+<h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-4">Başarı Durumu</h3>
+<div class="flex flex-col items-center justify-center py-2">
+<div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-4">
+<span class="material-icons text-primary text-3xl">check_circle</span>
+</div>
+<p class="font-nunito font-semibold text-primary">
+                        Başarıyla abone oldunuz!
+                    </p>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                        Hoş geldiniz, topluluğumuza katıldığınız için mutluyuz.
+                    </p>
+</div>
+</div>
+</div>
+<!-- Visual Context Image -->
+<div class="w-full h-48 rounded-xl overflow-hidden relative">
+<img alt="Abstract gradient background" class="w-full h-full object-cover opacity-50 grayscale hover:grayscale-0 transition-all duration-700" data-alt="Abstract gradient pattern in cyan and teal" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8eaarkW77IxkyimZYzu9Ylxo6k2pWo4muSjbbp8bhJd4XSsCtE0mMAL6alcF4wyqD56J2gy6zm0I0QCcPZ8jPqVLZTzyiahcSUDYgCThxPP2dhGpsrC6Izo3I1bxqheKAPgpdh_nVomvK5t4_HseuOn5EPkux8XFyyPm857KQtE-HSPKReQ7s3suN1fltfkRGwsEnwUlKt8BKIGGVrBB1qiTVdX1JG1ef7fhHPDBFGpmsRx_lssbEolCPkEjIDzSbRbdDaUWJwI0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark to-transparent"></div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Writing - DevPortfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Nunito+Sans:wght@300;400;600&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0df2f2",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#102222",
+                    },
+                    fontFamily: {
+                        "display": ["Sora", "Inter", "sans-serif"],
+                        "body": ["Nunito Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Sora', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-background-dark">
+<span class="material-symbols-outlined text-xl font-bold">terminal</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight">DevPortfolio</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Projects</a>
+<a class="text-sm font-semibold text-primary" href="#">Blog</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+<div class="size-10 rounded-full bg-slate-200 dark:bg-slate-800 border-2 border-primary overflow-hidden" data-alt="Developer profile avatar headshot">
+<img alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzqIzhpc4dkXI7_GYOKzxVRMkhpk1y38X6MgOHBz3s2qRLN8c1dKTHSIqVbgvaBlIqcbiBCyN6vrKHEcs94n8a5PcrgUCYRN5e5DnXHi6rWBcx_jlKFDmbs5HvmHZl0-tQSb4IwgNDMN1qGK-DJysTzOVhFpMk_tgbRYXo7IEYw4NyULNHHbRKtP6irT7yzNOZi77-us73d_SgvsbjBsGz_jIia9r6KldtWz419G2gd7gqitF3cJb7Xllf0Sb8FvaZJ-cwSclx3Ww"/>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-6 py-12">
+<section class="mb-16 text-center md:text-left">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-wider mb-6">
+<span class="size-2 rounded-full bg-primary animate-pulse"></span>
+                Blog &amp; Insights
+            </div>
+<h1 class="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight">Writing</h1>
+<p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
+                Deep dives into software engineering, artificial intelligence, and the tools that power the modern web. From CI/CD optimization to LLM orchestration.
+            </p>
+</section>
+<section class="mb-12">
+<div class="flex flex-wrap items-center gap-3">
+<button class="px-5 py-2 rounded-full bg-primary text-background-dark text-sm font-bold shadow-lg shadow-primary/20 transition-all">All Posts</button>
+<button class="px-5 py-2 rounded-full bg-slate-200 dark:bg-slate-800 hover:bg-primary/20 hover:text-primary text-sm font-semibold transition-all">AI</button>
+<button class="px-5 py-2 rounded-full bg-slate-200 dark:bg-slate-800 hover:bg-primary/20 hover:text-primary text-sm font-semibold transition-all">DevOps</button>
+<button class="px-5 py-2 rounded-full bg-slate-200 dark:bg-slate-800 hover:bg-primary/20 hover:text-primary text-sm font-semibold transition-all">Automation</button>
+<button class="px-5 py-2 rounded-full bg-slate-200 dark:bg-slate-800 hover:bg-primary/20 hover:text-primary text-sm font-semibold transition-all">Tutorial</button>
+<button class="px-5 py-2 rounded-full bg-slate-200 dark:bg-slate-800 hover:bg-primary/20 hover:text-primary text-sm font-semibold transition-all">Announcement</button>
+</div>
+</section>
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="group flex flex-col bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300">
+<div class="aspect-video w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Artificial intelligence circuit board concept with cyan glowing lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyxV-noxFTG8KWqbouAVoXmJCdWOvfF8qiULhwWxMoFwKk8craOibJm1oH_4rWmfbJ3NjjVAS4FfEZIBoMsjOW3ucpmq0wZ_ADb52iIgJialbWAdOK-IlubWENZk-2MLAx7x8BNG2ZvTQeHvvl3AiwjWuMRk-7-F0rjTBoL6I5f4zGctTBvGUiBvmCGuMYbjo5ZHmjl7YdDDBsWZGlxw66hZeGUScUP-k1GFOknnejukMceSZ-EBAaC8CgoZBxQ59HChwuGjEkd-c"/>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<div class="flex items-center justify-between mb-4">
+<span class="px-2.5 py-0.5 rounded text-xs font-bold bg-primary/20 text-primary uppercase">AI</span>
+<div class="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 text-xs">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>2024-05-20</span>
+</div>
+</div>
+<h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors leading-tight">Building Autonomous Interfaces</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm mb-6 line-clamp-3 leading-relaxed">
+                        Explore how large language models are redefining user experience through dynamic, intent-based UI components that adapt in real-time.
+                    </p>
+<div class="mt-auto">
+<a class="inline-flex items-center gap-2 text-primary text-sm font-bold hover:gap-3 transition-all" href="#">
+                            Read more
+                            <span class="material-symbols-outlined text-base">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<div class="group flex flex-col bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300">
+<div class="aspect-video w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Blue and cyan network server rack close-up" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDipkwLIn7d_JFpMb576p8oL6NBNxAsbbqDAfDCyu_2379vHaMlSo_mHXjG7MNoxnQ90cnpK30sNqwp52VEVe7oAn3MzfwhJb_eM0t5ZKWv4KKDiOFkLZgp8ePl_Hh_xGNA1-80QgA4H2cH8fQdlXytecLrGXTBL6-kDhFp6Y0u-FDTxnh0UojXvDwQwPtPXsyw6639kqTz3EjxRu-vVj2l2DilAAwGP-GH5GU96u8SK96eGDcl4mHDHvxmbYljJDQcZQBdiVhNweo"/>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<div class="flex items-center justify-between mb-4">
+<span class="px-2.5 py-0.5 rounded text-xs font-bold bg-primary/20 text-primary uppercase">DevOps</span>
+<div class="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 text-xs">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>2024-05-15</span>
+</div>
+</div>
+<h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors leading-tight">Optimizing CI/CD Pipelines</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm mb-6 line-clamp-3 leading-relaxed">
+                        Learn how we reduced our build times by 40% using custom GitHub Action runners and advanced Docker layer caching strategies.
+                    </p>
+<div class="mt-auto">
+<a class="inline-flex items-center gap-2 text-primary text-sm font-bold hover:gap-3 transition-all" href="#">
+                            Read more
+                            <span class="material-symbols-outlined text-base">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<div class="group flex flex-col bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300">
+<div class="aspect-video w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Digital grid pattern with glowing blue elements" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCWZRbKvl5r2g1Phsjbsqs77J21AKIODdPGTmkgUrvDdtgcMirw40dcd8WfXizqfEq1C7eQoVhCv7PZsEO7S25eEgyJqMlZPrc3sYXYuIc-tLrLfI7Ps9ssfMi0lolN_VFF89twIv-kD-xiIgkg8Co3wFqmHH0vidtA6oqZeK2ZHQkmQYHcaHUI830HESaswJ6CK7rA8bVKx4SFr8glLTY2wX--nRU0-GQtVlIEQvyG2ZlEzK7p723p_uEbNOWxQWl0ksa-bN8Bkc"/>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<div class="flex items-center justify-between mb-4">
+<span class="px-2.5 py-0.5 rounded text-xs font-bold bg-primary/20 text-primary uppercase">Automation</span>
+<div class="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 text-xs">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>2024-05-01</span>
+</div>
+</div>
+<h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors leading-tight">GPT-4 for Automation</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm mb-6 line-clamp-3 leading-relaxed">
+                        A practical guide to using OpenAI's latest models to automate documentation, unit test generation, and pull request reviews.
+                    </p>
+<div class="mt-auto">
+<a class="inline-flex items-center gap-2 text-primary text-sm font-bold hover:gap-3 transition-all" href="#">
+                            Read more
+                            <span class="material-symbols-outlined text-base">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<div class="group flex flex-col bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300">
+<div class="aspect-video w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Abstract view of earth from space with data connections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7KR4t8pWPySuJ7ZN_XrPGEmrXdu66FkPOrIxhWi8R3okvOS-Q48KlC0ZZStLr0Sj7VzQBrkt31UpkC1p3qA_sr-uKnoMx5bZewrEIYVq4Q3OyVXf1fsO21sTVT_Moh9ZmHH85wmMOAIKeI8n3U70xILX3too0b6uoVnsAwaP7n_WWsCNxYrCV1hYBXpz2jhZBRbdcGDCnaAD6uGDYn-05GOAnYUYUiaEhgnzjvg_fpP-SFMnaJP0SA8oyDFC-pLrwCalfIuajxcE"/>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<div class="flex items-center justify-between mb-4">
+<span class="px-2.5 py-0.5 rounded text-xs font-bold bg-primary/20 text-primary uppercase">Tutorial</span>
+<div class="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 text-xs">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>2024-04-22</span>
+</div>
+</div>
+<h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors leading-tight">The Future of Serverless</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm mb-6 line-clamp-3 leading-relaxed">
+                        Moving beyond basic functions: How edge computing and WebAssembly are changing what it means to build "serverless" applications.
+                    </p>
+<div class="mt-auto">
+<a class="inline-flex items-center gap-2 text-primary text-sm font-bold hover:gap-3 transition-all" href="#">
+                            Read more
+                            <span class="material-symbols-outlined text-base">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<div class="group flex flex-col bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300">
+<div class="aspect-video w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Microchip macro photography with cyan lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1y-rAq_UpgDeTWf6VFQayaAGgkq85BydOL2lKzTOtdByjFZHTQLy2wI5VXN9b_C1bazOdqq7LfSIUJ_Yb0bLHjpaLW5RQeaST4JBXI5hLefVFz5nU5JcenQMtBVTEbU-8yyZNXxnx2HiAUjOMvjdVkDHMEXHvekTh_L6KOPOd6A41VUQKyXK5VJq_3xabFGL8N4UePWp46tgMCFwSy1FNXFi069BsqXJcAx92g_z_K4QGHZ_7xKTxfUyjeJ1NfhQtorNv2gCQDDo"/>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<div class="flex items-center justify-between mb-4">
+<span class="px-2.5 py-0.5 rounded text-xs font-bold bg-primary/20 text-primary uppercase">Announcement</span>
+<div class="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 text-xs">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>2024-04-10</span>
+</div>
+</div>
+<h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors leading-tight">Portfolio v3.0 Release</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm mb-6 line-clamp-3 leading-relaxed">
+                        An overview of the new tech stack powering this site: Next.js 14, Tailwind CSS, and headless content management.
+                    </p>
+<div class="mt-auto">
+<a class="inline-flex items-center gap-2 text-primary text-sm font-bold hover:gap-3 transition-all" href="#">
+                            Read more
+                            <span class="material-symbols-outlined text-base">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<div class="group flex flex-col bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300">
+<div class="aspect-video w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="JavaScript code on a dark screen with cyan highlighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXz0nD51hvVVJacBR0dOqRteMmU6EDDveQzNJN-eskgMlR_snpPWjjWfxeXK0op7yHRlgsNvfZRHd5eSI8b_BtBRAHBWk3Ge8ibmBSOc0WOhX68lXdhApEeS2rQT24XA1GThKWxdGMxz3_O8ixy7wvJ5JCGkhqpKj8p5TGF3dXdMDY_rFjbQKiQIuG8xt3NddhZb5nTfjaS3G15fLUQ0ZUfnvIkfM-8ihnzKI5JBWdRzNx9hVAfvCYSMHXjfS9Os8gUEtHEf-kmeA"/>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<div class="flex items-center justify-between mb-4">
+<span class="px-2.5 py-0.5 rounded text-xs font-bold bg-primary/20 text-primary uppercase">AI</span>
+<div class="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 text-xs">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>2024-03-28</span>
+</div>
+</div>
+<h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors leading-tight">Vector Databases Explained</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm mb-6 line-clamp-3 leading-relaxed">
+                        A developer's guide to semantic search and how vector stores like Pinecone and Milvus enable RAG applications.
+                    </p>
+<div class="mt-auto">
+<a class="inline-flex items-center gap-2 text-primary text-sm font-bold hover:gap-3 transition-all" href="#">
+                            Read more
+                            <span class="material-symbols-outlined text-base">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<div class="mt-16 flex justify-center">
+<button class="px-8 py-3 rounded-lg border border-slate-200 dark:border-slate-800 font-bold hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+                Load More Articles
+            </button>
+</div>
+</main>
+<footer class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/30 py-12 px-6">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="flex flex-col items-center md:items-start gap-4">
+<div class="flex items-center gap-2">
+<div class="size-6 bg-primary rounded flex items-center justify-center text-background-dark">
+<span class="material-symbols-outlined text-sm font-bold">terminal</span>
+</div>
+<span class="text-lg font-bold tracking-tight">DevPortfolio</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm max-w-xs text-center md:text-left">
+                    Sharing thoughts on code, design, and automation since 2020.
+                </p>
+</div>
+<div class="flex flex-col items-center gap-6">
+<div class="flex items-center gap-6">
+<a class="text-slate-500 hover:text-primary transition-colors" href="#">
+<svg class="size-6 fill-current" viewbox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
+</a>
+<a class="text-slate-500 hover:text-primary transition-colors" href="#">
+<svg class="size-6 fill-current" viewbox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.84 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path></svg>
+</a>
+<a class="text-slate-500 hover:text-primary transition-colors" href="#">
+<svg class="size-6 fill-current" viewbox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
+</a>
+</div>
+<p class="text-xs text-slate-500 dark:text-slate-500">
+                    © 2024 Developer Portfolio. All rights reserved.
+                </p>
+</div>
+<nav class="flex gap-6 text-sm">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">RSS</a>
+</nav>
+</div>
+</footer>
+</body></html>
