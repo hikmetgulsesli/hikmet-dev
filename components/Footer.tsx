@@ -8,10 +8,10 @@ const socialLinks = [
 ];
 
 const footerLinks = [
-  { href: '/about', label: 'About' },
-  { href: '/projects', label: 'Projects' },
-  { href: '/resources', label: 'Resources' },
-  { href: '/writing', label: 'Blog' },
+  { href: '/introduction', label: 'Hakkımda' },
+  { href: '/projects', label: 'Projeler' },
+  { href: '/resources', label: 'Kaynaklar' },
+  { href: '/blog', label: 'Blog' },
 ];
 
 export function Footer() {
