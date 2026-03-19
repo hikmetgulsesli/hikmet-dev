@@ -54,7 +54,7 @@ export const siteStats: SiteStats = {
   webApps: 24,
   workflows: 5,
   uptime: '99.9%',
-  lastUpdated: new Date().toISOString(),
+  lastUpdated: '2026-01-01T00:00:00.000Z',
 };
 
 export const heroContent: HeroContent = {
@@ -84,7 +84,7 @@ export const statCards: StatCard[] = [
   },
   {
     id: 'workflows',
-    label: 'i\u015F Ak\u0131\u015F\u0131',
+    label: '\u0130\u015F Ak\u0131\u015F\u0131',
     value: '5',
     description: 'Otomatik pipeline',
     icon: 'account_tree',

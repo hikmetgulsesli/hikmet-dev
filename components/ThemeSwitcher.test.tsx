@@ -104,8 +104,18 @@ describe('ThemeSwitcher', () => {
     const themeButton = screen.getByLabelText('Select theme');
     fireEvent.click(themeButton);
     
-    // Dark is current theme, should have checkmark
+    // Dark is current theme, should have aria-label="Selected" checkmark
     const darkOption = screen.getByText('Dark').closest('button');
-    expect(darkOption?.querySelector('svg')).toBeInTheDocument();
+    expect(darkOption?.querySelector('[aria-label="Selected"]')).toBeInTheDocument();
+  });
+
+  it('does not show checkmark for non-current theme', () => {
+    render(<ThemeSwitcher />);
+    const themeButton = screen.getByLabelText('Select theme');
+    fireEvent.click(themeButton);
+    
+    // Light is not current theme, should not have Selected checkmark
+    const lightOption = screen.getByText('Light').closest('button');
+    expect(lightOption?.querySelector('[aria-label="Selected"]')).not.toBeInTheDocument();
   });
 });

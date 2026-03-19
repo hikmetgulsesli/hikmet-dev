@@ -32,10 +32,10 @@ describe('Header', () => {
 
   it('renders all navigation links', () => {
     render(<Header />);
-    expect(screen.getByText('Home')).toBeInTheDocument();
-    expect(screen.getByText('Projects')).toBeInTheDocument();
-    expect(screen.getByText('Resources')).toBeInTheDocument();
-    expect(screen.getByText('Writing')).toBeInTheDocument();
+    expect(screen.getByText('Ana Sayfa')).toBeInTheDocument();
+    expect(screen.getByText('Projeler')).toBeInTheDocument();
+    expect(screen.getByText('Kaynaklar')).toBeInTheDocument();
+    expect(screen.getByText('Yazılar')).toBeInTheDocument();
   });
 
   it('renders the live badge', () => {
@@ -57,7 +57,7 @@ describe('Header', () => {
 
   it('highlights active nav link based on current route', () => {
     render(<Header />);
-    const homeLink = screen.getByText('Home');
+    const homeLink = screen.getByText('Ana Sayfa');
     expect(homeLink).toHaveClass('text-primary');
   });
 
@@ -75,7 +75,7 @@ describe('Header', () => {
     expect(screen.getByLabelText('Close menu')).toBeInTheDocument();
     
     // Mobile nav links should be visible
-    const mobileNav = screen.getAllByText('Home');
+    const mobileNav = screen.getAllByText('Ana Sayfa');
     expect(mobileNav.length).toBeGreaterThan(0);
   });
 
