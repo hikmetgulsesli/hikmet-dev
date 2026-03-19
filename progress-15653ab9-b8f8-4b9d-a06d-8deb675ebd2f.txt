@@ -1,0 +1,35 @@
+=== US-013: Root layout with Header + Footer, 404 page, and error boundary ===
+COMPLETED: 2026-03-19T23:15:00+03:00
+FILES_CHANGED:
+- app/layout.tsx - Root layout with Header/Footer and metadata
+- app/not-found.tsx - 404 page with Turkish text
+- app/global-error.tsx - Error boundary
+- app/sitemap.ts - SEO sitemap
+- app/globals.css - Design tokens import
+- app/page.tsx - Updated home page
+- app/projects/page.tsx - Updated placeholder
+- app/workbench/page.tsx - Updated placeholder
+- app/blog/page.tsx - Updated placeholder
+- app/introduction/page.tsx - Updated placeholder
+- components/Header.tsx - Updated header with navigation
+- components/Footer.tsx - Updated footer with CTA
+- components/ThemeProvider.tsx - New theme provider
+- components/ThemeSwitcher.tsx - Updated theme switcher
+- public/robots.txt - SEO robots file
+- next.config.ts - Static export config
+- tsconfig.json - Updated config
+- __tests__/layout.test.tsx - Layout tests
+- __tests__/Header.test.tsx - Header tests
+- __tests__/Footer.test.tsx - Footer tests
+- __tests__/not-found.test.tsx - 404 page tests
+
+KEY_DECISIONS:
+- Used ThemeProvider for dark/light mode with localStorage persistence
+- Implemented Turkish text for all user-facing content as per LANGUAGE RULE
+- Created comprehensive metadata with OpenGraph tags
+- Added error boundary with user-friendly Turkish error messages
+- Configured static export for deployment
+- Implemented responsive design with mobile menu
+
+BUILD_STATUS: PASS
+LINT_STATUS: PASS (with eslint-disable for valid theme pattern)
