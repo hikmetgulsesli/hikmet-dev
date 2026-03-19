@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://setrox.com.tr/sitemap.xml
+
+# Crawl rate
+Crawl-delay: 1
+
+# Disallow patterns
+Disallow: /api/
+Disallow: /_next/
+Disallow: /*.json$
+Disallow: /*.js$
+Disallow: /*.css$

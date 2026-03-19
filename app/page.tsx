@@ -1,190 +1,125 @@
-import { Hero } from "@/components/Hero";
-import {
-  ProjectCard,
-  BlogCard,
-  DocCard,
-  RepoCard,
-  StatsCard,
-} from "@/components/cards";
-import { NewsletterForm } from "@/components/forms/NewsletterForm";
-import { TerminalWidget } from "@/components/TerminalWidget";
-import { getRecentPosts } from "@/data/blog";
-import { docsCards, repoCards, terminalLogs } from "@/data/resources";
-import { BookOpen, GitBranch, TerminalSquare } from "lucide-react";
+import Link from "next/link";
+import { Terminal, ArrowRight } from "lucide-react";
 
 export default function Home() {
-  const recentPosts = getRecentPosts(3);
-
   return (
-    <div className="flex-1 w-full">
-      <Hero />
+    <div className="flex flex-col">
+      {/* Hero Section */}
+      <section className="relative py-20 md:py-32 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/20 mb-6">
+                <Terminal className="w-4 h-4 text-[var(--color-primary)]" />
+                <span className="text-sm font-medium text-[var(--color-primary)]">
+                  OpenClaw Builder
+                </span>
+              </div>
 
-      {/* Hero Section - Stats Cards */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <StatsCard iconName="Bot" value="10+" label="Agents" />
-          <StatsCard iconName="Globe" value="24" label="Web Apps" />
-          <StatsCard iconName="GitBranch" value="5" label="Workflows" />
+              <h1 className="text-4xl md:text-6xl font-bold text-slate-900 dark:text-white mb-6">
+                Geleceği inşa ediyoruz{" "}
+                <span className="text-[var(--color-primary)]">
+                  yapay zeka ile
+                </span>
+              </h1>
+
+              <p className="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-lg">
+                10 AI agent, 24 deployed web app, 5 automated workflow. Kimi k2p5, MiniMax M2.7 ve açık kaynak araçlarla geliştiriyoruz.
+              </p>
+
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href="/projects"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-primary)] text-[#0f2323] font-semibold hover:bg-[var(--color-accent)] transition-colors"
+                >
+                  Projeleri Keşfet
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+                <Link
+                  href="/introduction"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-slate-200 dark:border-[var(--color-border-dark)] text-slate-700 dark:text-slate-300 font-medium hover:bg-slate-100 dark:hover:bg-white/5 transition-colors"
+                >
+                  Hakkımda
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Content - Stats */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="p-6 rounded-2xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-[var(--color-border-dark)]">
+                <div className="text-4xl font-bold text-[var(--color-primary)] mb-2">
+                  10+
+                </div>
+                <div className="text-slate-600 dark:text-slate-400">AI Agent</div>
+              </div>
+              <div className="p-6 rounded-2xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-[var(--color-border-dark)]">
+                <div className="text-4xl font-bold text-[var(--color-primary)] mb-2">
+                  24
+                </div>
+                <div className="text-slate-600 dark:text-slate-400">Web Uygulaması</div>
+              </div>
+              <div className="p-6 rounded-2xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-[var(--color-border-dark)] col-span-2">
+                <div className="text-4xl font-bold text-[var(--color-primary)] mb-2">
+                  5
+                </div>
+                <div className="text-slate-600 dark:text-slate-400">Otomatik Workflow</div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Projects Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h2 className="text-2xl font-bold mb-6 text-slate-900 dark:text-white">
-          Projects and Open Source
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <ProjectCard
-            title="Mission Control"
-            description="Centralized dashboard for managing AI agents and automated workflows."
-            status="shipped"
-            year={2024}
-            tags={["Next.js", "React", "TypeScript"]}
-            starCount={128}
-            forkCount={24}
-            liveUrl="#"
-            sourceUrl="#"
-            featured
-          />
-          <ProjectCard
-            title="Setfarm"
-            description="Pipeline engine for automated development workflows."
-            status="in-progress"
-            year={2024}
-            tags={["Node.js", "TypeScript", "CLI"]}
-            starCount={85}
-            forkCount={12}
-            liveUrl="#"
-            sourceUrl="#"
-          />
-          <ProjectCard
-            title="Hizli Okuma"
-            description="Speed reading application with RSVP technique."
-            status="shipped"
-            year={2024}
-            tags={["React", "TypeScript", "PWA"]}
-            starCount={64}
-            forkCount={8}
-            liveUrl="#"
-            sourceUrl="#"
-          />
-        </div>
-      </section>
-
-      {/* Newsletter Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary via-cyan-600 to-teal-600 py-16 md:py-20">
-        {/* Decorative Elements */}
-        <div className="absolute top-0 right-0 -mt-20 -mr-20 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-64 h-64 bg-black/10 rounded-full blur-3xl" />
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Bültenimize Katılın
+      {/* Featured Projects Preview */}
+      <section className="py-20 border-t border-slate-200 dark:border-[var(--color-border-dark)]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between mb-12">
+            <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
+              Öne Çıkan Projeler
             </h2>
-            <p className="text-lg text-white/90 max-w-xl mb-8">
-              En yeni teknoloji haberleri, tasarım trendleri ve özel içerikler doğrudan gelen kutunuza gelsin.
-            </p>
-            <NewsletterForm />
-          </div>
-        </div>
-      </section>
-
-      {/* Latest Blog Posts Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="flex items-center gap-2 mb-8">
-          <BookOpen className="w-6 h-6 text-primary" />
-          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-            Latest Blog Posts
-          </h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {recentPosts.map((post) => (
-            <BlogCard
-              key={post.id}
-              title={post.title}
-              summary={post.excerpt}
-              category={post.category}
-              date={post.date}
-              slug={`/blog/${post.slug}`}
-            />
-          ))}
-        </div>
-      </section>
-
-      {/* Resources & APIs Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="flex items-center gap-2 mb-8">
-          <TerminalSquare className="w-6 h-6 text-primary" />
-          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-            Resources & APIs
-          </h2>
-        </div>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* Left Column: Documentation and Repos */}
-          <div className="lg:col-span-8 space-y-12">
-            {/* Documentation Section */}
-            <section>
-              <div className="flex items-center gap-2 mb-6">
-                <BookOpen className="w-5 h-5 text-primary" />
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white">Documentation</h3>
-                <a
-                  href="/docs"
-                  className="text-sm text-primary hover:underline ml-auto"
-                >
-                  View all
-                </a>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {docsCards.map((doc) => (
-                  <DocCard
-                    key={doc.id}
-                    title={doc.title}
-                    description={doc.description}
-                    icon={doc.icon}
-                    progress={doc.progress}
-                    lastActivity={doc.lastActivity}
-                    link={doc.link}
-                  />
-                ))}
-              </div>
-            </section>
-
-            {/* GitHub Repositories Section */}
-            <section>
-              <div className="flex items-center gap-2 mb-6">
-                <GitBranch className="w-5 h-5 text-primary" />
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white">Repositories</h3>
-                <a
-                  href="https://github.com/hikmetgulsesli"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-primary hover:underline ml-auto"
-                >
-                  Connect GitHub
-                </a>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {repoCards.map((repo) => (
-                  <RepoCard
-                    key={repo.id}
-                    name={repo.name}
-                    description={repo.description}
-                    language={repo.language}
-                    stars={repo.stars}
-                    forks={repo.forks}
-                    lastActivity={repo.lastActivity}
-                    url={repo.url}
-                  />
-                ))}
-              </div>
-            </section>
+            <Link
+              href="/projects"
+              className="text-[var(--color-primary)] hover:underline"
+            >
+              Tümünü gör →
+            </Link>
           </div>
 
-          {/* Right Column: Terminal Widget */}
-          <div className="lg:col-span-4 h-full">
-            <TerminalWidget logs={terminalLogs} title="OpenClaw_Terminal" />
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                name: "Mission Control",
+                desc: "AI agent yönetim dashboard'u",
+                status: "shipped",
+              },
+              {
+                name: "Setfarm",
+                desc: "Otomasyon pipeline motoru",
+                status: "shipped",
+              },
+              {
+                name: "Hızlı Okuma",
+                desc: "Hızlı okuma eğitim uygulaması",
+                status: "shipped",
+              },
+            ].map((project) => (
+              <div
+                key={project.name}
+                className="p-6 rounded-2xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-[var(--color-border-dark)] hover:border-[var(--color-primary)]/50 transition-colors"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white">
+                    {project.name}
+                  </h3>
+                  <span className="px-2 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+                    {project.status}
+                  </span>
+                </div>
+                <p className="text-slate-600 dark:text-slate-400">
+                  {project.desc}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

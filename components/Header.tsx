@@ -1,146 +1,155 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { ThemeSwitcher } from './ThemeSwitcher';
-import { Github, MessageCircle, Linkedin, Menu, X, Terminal } from 'lucide-react';
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { Terminal, Menu, X, Github, Linkedin } from "lucide-react";
+import { ThemeSwitcher } from "./ThemeSwitcher";
 
 const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/projects', label: 'Projects' },
-  { href: '/resources', label: 'Resources' },
-  { href: '/writing', label: 'Writing' },
+  { href: "/", label: "Home" },
+  { href: "/projects", label: "Projects" },
+  { href: "/workbench", label: "Resources" },
+  { href: "/blog", label: "Writing" },
 ];
 
 const socialLinks = [
-  { href: 'https://github.com', icon: Github, label: 'GitHub' },
-  { href: 'https://discord.com', icon: MessageCircle, label: 'Discord' },
-  { href: 'https://linkedin.com', icon: Linkedin, label: 'LinkedIn' },
+  { href: "https://github.com/hikmetgulsesli", label: "GitHub", icon: Github },
+  { href: "https://discord.gg/setroxhq", label: "Discord", icon: () => (
+    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
+      <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+    </svg>
+  )},
+  { href: "https://linkedin.com/in/hikmetgulsesli", label: "LinkedIn", icon: Linkedin },
 ];
 
 export function Header() {
-  const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  const isActive = (href: string) => {
-    if (href === '/') {
-      return pathname === '/';
-    }
-    return pathname.startsWith(href);
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-slate-800/50 bg-slate-900/80 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <Terminal className="h-6 w-6 text-primary" />
-          <span className="text-lg font-bold text-slate-100">Hikmet Gulsesli</span>
-        </Link>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-6 md:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`text-sm transition-colors hover:text-slate-200 ${
-                isActive(link.href)
-                  ? 'font-medium text-primary'
-                  : 'text-slate-400'
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-
-        {/* Right section: Theme switcher, social icons, live badge */}
-        <div className="flex items-center gap-3">
-          {/* Social icons - desktop only */}
-          <div className="hidden items-center gap-1 border-r border-slate-700 pr-3 md:flex">
-            {socialLinks.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-9 w-9 items-center justify-center rounded-lg text-slate-400 transition-colors hover:bg-white/5 hover:text-slate-200"
-                aria-label={social.label}
-              >
-                <social.icon className="h-4 w-4" />
-              </a>
-            ))}
-          </div>
-
-          {/* Live badge */}
-          <div className="hidden items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1 md:flex">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
+    <header
+      className={`sticky top-0 z-50 w-full border-b border-slate-200 dark:border-white/10 transition-all duration-200 ${
+        isScrolled
+          ? "bg-white/80 dark:bg-[#0f2323]/80 backdrop-blur-md"
+          : "bg-white dark:bg-[#0f2323]"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2">
+            <Terminal className="w-6 h-6 text-[var(--color-primary)]" />
+            <span className="text-xl font-bold text-slate-900 dark:text-white">
+              Hikmet Gulsesli
             </span>
-            <span className="text-xs font-medium text-green-400">10 agents live</span>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-[var(--color-primary)] dark:hover:text-[var(--color-primary)] transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Right Section */}
+          <div className="flex items-center gap-3">
+            {/* Live Badge */}
+            <div className="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="text-xs font-medium text-emerald-600 dark:text-emerald-400">
+                10 agents live
+              </span>
+            </div>
+
+            {/* Theme Switcher */}
+            <ThemeSwitcher />
+
+            {/* Social Links - Desktop */}
+            <div className="hidden lg:flex items-center gap-1 border-l border-slate-200 dark:border-white/10 pl-3 ml-1">
+              {socialLinks.map((link) => {
+                const Icon = link.icon;
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:text-[var(--color-primary)] dark:hover:text-[var(--color-primary)] hover:bg-slate-100 dark:hover:bg-white/5 transition-colors"
+                    aria-label={link.label}
+                  >
+                    <Icon className="w-5 h-5" />
+                  </a>
+                );
+              })}
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5 transition-colors"
+              aria-label={isMobileMenuOpen ? "Menüyü kapat" : "Menüyü aç"}
+            >
+              {isMobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </button>
           </div>
-
-          {/* Theme switcher */}
-          <ThemeSwitcher />
-
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-slate-400 md:hidden"
-            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-          >
-            {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="border-t border-slate-800/50 bg-slate-900/95 backdrop-blur-md md:hidden" data-testid="mobile-menu">
-          <nav className="flex flex-col gap-1 p-4">
+        <div className="md:hidden border-t border-slate-200 dark:border-white/10 bg-white dark:bg-[#0f2323]">
+          <div className="px-4 py-4 space-y-3">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`rounded-lg px-4 py-3 text-sm transition-colors ${
-                  isActive(link.href)
-                    ? 'bg-white/10 font-medium text-primary'
-                    : 'text-slate-400 hover:bg-white/5 hover:text-slate-200'
-                }`}
+                className="block px-3 py-2 rounded-lg text-base font-medium text-slate-600 dark:text-slate-300 hover:text-[var(--color-primary)] dark:hover:text-[var(--color-primary)] hover:bg-slate-100 dark:hover:bg-white/5 transition-colors"
               >
                 {link.label}
               </Link>
             ))}
-            
-            {/* Mobile social links */}
-            <div className="mt-4 flex items-center gap-2 border-t border-slate-800/50 pt-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex h-10 w-10 items-center justify-center rounded-lg text-slate-400 transition-colors hover:bg-white/5 hover:text-slate-200"
-                  aria-label={social.label}
-                >
-                  <social.icon className="h-5 w-5" />
-                </a>
-              ))}
+            <div className="pt-3 border-t border-slate-200 dark:border-white/10">
+              <div className="flex items-center gap-2 px-3">
+                <span className="text-sm text-slate-500 dark:text-slate-400">
+                  Sosyal:
+                </span>
+                {socialLinks.map((link) => {
+                  const Icon = link.icon;
+                  return (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:text-[var(--color-primary)] dark:hover:text-[var(--color-primary)] transition-colors"
+                      aria-label={link.label}
+                    >
+                      <Icon className="w-5 h-5" />
+                    </a>
+                  );
+                })}
+              </div>
             </div>
-
-            {/* Mobile live badge */}
-            <div className="mt-3 flex items-center gap-2">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
-              </span>
-              <span className="text-sm text-green-400">10 agents live</span>
-            </div>
-          </nav>
+          </div>
         </div>
       )}
     </header>
