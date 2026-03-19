@@ -34,10 +34,10 @@ describe("Home Page", () => {
     
     expect(screen.getByText("Documentation")).toBeInTheDocument();
     const docCardTitles = [
-      "Core API Referansı",
-      "Agent SDK",
-      "Güvenlik Rehberi",
-      "Deployment",
+      "OpenClaw Documentation",
+      "Setfarm Guide",
+      "API Reference",
+      "Community Docs",
     ];
     docCardTitles.forEach(title => {
       expect(screen.getByText(title)).toBeInTheDocument();
@@ -49,10 +49,10 @@ describe("Home Page", () => {
     
     expect(screen.getByText("Repositories")).toBeInTheDocument();
     const repoNames = [
-      "ui-kit-pro",
-      "auth-service-v3",
-      "data-pipeline",
-      "edge-cache"
+      "openclaw-core",
+      "setfarm",
+      "hikmet-dev",
+      "templates"
     ];
     repoNames.forEach(name => {
       expect(screen.getByText(name)).toBeInTheDocument();
