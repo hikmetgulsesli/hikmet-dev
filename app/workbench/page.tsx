@@ -1,4 +1,5 @@
-import { docsCards, repoCards } from "@/data/resources";
+import React from "react";
+import { docsCards, repoCards, terminalLogs } from "@/data/resources";
 import { TerminalWidget } from "@/components/TerminalWidget";
 import { 
   BookOpen, 
@@ -116,14 +117,22 @@ function RepoCardComponent({ repo }: { repo: typeof repoCards[0] }) {
 function QuickLinkCard({ 
   icon: Icon, 
   title, 
-  subtitle 
+  subtitle,
+  href = "#"
 }: { 
   icon: React.ComponentType<{ className?: string }>; 
   title: string; 
   subtitle: string;
+  href?: string;
 }) {
+  const isExternal = href.startsWith('http');
   return (
-    <div className="bg-surface-dark/30 border border-border-dark rounded-xl p-4 flex items-center gap-4 hover:bg-surface-dark/50 transition-colors">
+    <a 
+      href={href}
+      target={isExternal ? '_blank' : undefined}
+      rel={isExternal ? 'noopener noreferrer' : undefined}
+      className="bg-surface-dark/30 border border-border-dark rounded-xl p-4 flex items-center gap-4 hover:bg-surface-dark/50 transition-colors cursor-pointer"
+    >
       <div className="size-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0">
         <Icon className="w-5 h-5" />
       </div>
@@ -131,7 +140,7 @@ function QuickLinkCard({
         <p className="text-white text-sm font-bold">{title}</p>
         <p className="text-slate-500 text-xs">{subtitle}</p>
       </div>
-    </div>
+    </a>
   );
 }
 
@@ -201,7 +210,7 @@ export default function WorkbenchPage() {
           {/* Terminal Widget */}
           <section className="lg:col-span-1" data-testid="terminal-section">
             <h2 className="text-2xl font-bold text-white mb-6">Sistem Terminali</h2>
-            <TerminalWidget className="h-[400px]" />
+            <TerminalWidget className="h-[400px]" logs={terminalLogs} />
           </section>
         </div>
 
@@ -211,21 +220,25 @@ export default function WorkbenchPage() {
             icon={FileText}
             title="API Docs"
             subtitle="v2.4.0 Güncellendi"
+            href="https://github.com/hikmetgulsesli/openclaw-core/blob/main/docs/API.md"
           />
           <QuickLinkCard
             icon={Layers}
             title="Discord Topluluğu"
             subtitle="12.4k Üye"
+            href="https://discord.gg/openclaw"
           />
           <QuickLinkCard
             icon={Code}
             title="Örnek Repo"
             subtitle="React, Next.js"
+            href="https://github.com/hikmetgulsesli/templates"
           />
           <QuickLinkCard
             icon={Zap}
             title="Direkt Destek"
             subtitle="7/24 Aktif"
+            href="mailto:destek@setrox.com.tr"
           />
         </section>
       </div>

@@ -10,6 +10,8 @@ export interface DocCard {
   icon: string;
   link: string;
   category: string;
+  progress: number;
+  lastActivity: string;
 }
 
 export interface RepoCard {
@@ -41,6 +43,8 @@ export const docsCards: DocCard[] = [
     icon: 'book',
     link: 'https://github.com/hikmetgulsesli/openclaw-core/blob/main/README.md',
     category: 'Documentation',
+    progress: 100,
+    lastActivity: '2 saat önce',
   },
   {
     id: 'setfarm-guide',
@@ -49,6 +53,8 @@ export const docsCards: DocCard[] = [
     icon: 'git-branch',
     link: 'https://github.com/hikmetgulsesli/setfarm/blob/main/docs/README.md',
     category: 'Guide',
+    progress: 92,
+    lastActivity: '1 gün önce',
   },
   {
     id: 'api-reference',
@@ -57,6 +63,8 @@ export const docsCards: DocCard[] = [
     icon: 'code',
     link: 'https://github.com/hikmetgulsesli/openclaw-core/blob/main/docs/api.md',
     category: 'API',
+    progress: 85,
+    lastActivity: '3 gün önce',
   },
   {
     id: 'community-docs',
@@ -65,6 +73,8 @@ export const docsCards: DocCard[] = [
     icon: 'users',
     link: 'https://github.com/hikmetgulsesli/openclaw-core/blob/main/docs/community.md',
     category: 'Community',
+    progress: 76,
+    lastActivity: '1 hafta önce',
   },
 ];
 

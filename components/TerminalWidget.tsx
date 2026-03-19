@@ -12,6 +12,7 @@ export interface TerminalLog {
 interface TerminalWidgetProps {
   logs?: TerminalLog[];
   className?: string;
+  title?: string;
 }
 
 const defaultLogs: TerminalLog[] = [
@@ -39,7 +40,7 @@ const levelLabels = {
   error: "ERR",
 };
 
-export function TerminalWidget({ logs = defaultLogs, className = "" }: TerminalWidgetProps) {
+export function TerminalWidget({ logs = defaultLogs, className = "", title = "OpenClaw_Terminal" }: TerminalWidgetProps) {
   const handleCopy = useCallback(() => {
     const text = logs.map(log => `[${log.timestamp}] [${levelLabels[log.level]}] ${log.message}`).join('\n');
     navigator.clipboard.writeText(text).catch(() => {});
@@ -55,7 +56,7 @@ export function TerminalWidget({ logs = defaultLogs, className = "" }: TerminalW
           <div className="w-2.5 h-2.5 rounded-full bg-green-500/50" />
         </div>
         <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest font-bold">
-          zsh — workbench-pro
+          {title}
         </span>
         <button 
           type="button" 
